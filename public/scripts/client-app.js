@@ -1,5 +1,10 @@
 var app = angular.module('app', ['ngMaterial','ngRoute']);
 
+app.config(function($mdThemingProvider) {
+$mdThemingProvider.theme('default')
+  .dark();
+});
+
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix('');
   $routeProvider
