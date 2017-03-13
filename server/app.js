@@ -19,8 +19,8 @@ app.get('/', function(req, res) {
 });
 
 app.use('/npcs', npcs);
-// app.use('/admin', admin);
-// app.use('/pizza', pizza);
+app.use('/addnpc', addnpc);
+app.use('random', random);
 
 pgConnection.connect();
 
