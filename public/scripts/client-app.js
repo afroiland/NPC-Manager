@@ -37,6 +37,6 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     })
     .otherwise({
       redirectTo: '/home'
-    });//End route
+    });
 
-}]);//End config;
+}]);

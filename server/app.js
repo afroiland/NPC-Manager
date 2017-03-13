@@ -1,12 +1,13 @@
 
 var express = require('express');
 var path = require('path');
+var bodyParser = require('body-parser');
+var pgConnection = require('./modules/pg-connection');
 var app = express();
 
 const LOCALPORT = 3000;
 var portDecision = process.env.PORT || LOCALPORT;
 
-//Serve static files
 app.use(express.static('public'));
 
 // app.use(bodyParser.urlencoded());
