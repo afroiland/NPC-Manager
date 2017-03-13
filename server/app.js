@@ -4,6 +4,8 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var pgConnection = require('./modules/pg-connection');
 var npcs = require('./routes/npcs');
+var addnpc = require('./routes/addnpc');
+var random = require('./routes/random');
 var app = express();
 
 const LOCALPORT = 3000;
