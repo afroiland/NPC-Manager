@@ -1,36 +1,23 @@
-<md-toolbar>
-  NPC Manager
+<md-toolbar class="toolbar">
+  <div class="md-toolbar-tools">
+    NPC Manager
+  </div>
 </md-toolbar>
 
 <div ng-controller="HomeController" ng-cloak>
   <md-content class="md-padding">
     <md-nav-bar
-      md-selected-nav-item="currentNavItem"
-      nav-bar-aria-label="navigation links">
-      <md-nav-item md-nav-href="#NPCs" name="page1">
-        NPCs
-      </md-nav-item>
-      <md-nav-item md-nav-click="goto('page2')" name="page2">
-        Add NPC
-      </md-nav-item>
-      <md-nav-item md-nav-click="goto('page3')" name="page3">
-        Random
-      </md-nav-item>
-      <!-- these require actual routing with ui-router or ng-route, so they
-      won't work in the demo
-      <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
-      <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
-      You can also add options for the <code>ui-sref-opts</code> attribute.
-      <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
-        Page Six
-      </md-nav-item>
-      -->
-    </md-nav-bar>
-    <!-- <div class="ext-content">
-      External content for `<span>{{currentNavItem}}</span>`.
-    </div> -->
-
-    <!-- <md-checkbox ng-model="disableInkBar">Disable Ink Bar</md-checkbox> -->
-
-  </md-content>
+    md-selected-nav-item="currentNavItem"
+    nav-bar-aria-label="navigation links">
+    <md-nav-item md-nav-href="#NPCs" name="NPCs">
+      NPCs
+    </md-nav-item>
+    <md-nav-item md-nav-href="#addNPC" name="addNPC">
+      Add NPC
+    </md-nav-item>
+    <md-nav-item md-nav-href="#random" name="random">
+      Random
+    </md-nav-item>
+  </md-nav-bar>
+</md-content>
 </div>
