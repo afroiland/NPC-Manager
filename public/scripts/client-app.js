@@ -22,18 +22,18 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     })
     .when('/NPCs', {
       templateUrl: '/views/templates/NPCs.html',
-      controller: 'HomeController',
-      controllerAs: 'home'
+      controller: 'npcsController',
+      controllerAs: 'npcs'
     })
     .when('/addNPC', {
       templateUrl: '/views/templates/addNPC.html',
-      controller: 'HomeController',
-      controllerAs: 'home'
+      controller: 'AddnpcController',
+      controllerAs: 'addnpc'
     })
     .when('/random', {
       templateUrl: '/views/templates/random.html',
-      controller: 'HomeController',
-      controllerAs: 'home'
+      controller: 'RandomController',
+      controllerAs: 'random'
     })
     .otherwise({
       redirectTo: '/home'
