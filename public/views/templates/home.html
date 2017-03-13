@@ -1,35 +1,50 @@
 
+<md-toolbar>
+  NPC Manager
+</md-toolbar>
 
-  <h1>Ok</h1>
+<div ng-controller="HomeController" ng-cloak>
+  <md-content class="md-padding">
+    <md-nav-bar
+      md-selected-nav-item="currentNavItem"
+      nav-bar-aria-label="navigation links">
+      <md-nav-item md-nav-click="goto('page1')" name="page1">
+        Page One
+      </md-nav-item>
+      <md-nav-item md-nav-click="goto('page2')" name="page2">
+        Page Two
+      </md-nav-item>
+      <md-nav-item md-nav-click="goto('page3')" name="page3">
+        Page Three
+      </md-nav-item>
+      <!-- these require actual routing with ui-router or ng-route, so they
+      won't work in the demo
+      <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
+      <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
+      You can also add options for the <code>ui-sref-opts</code> attribute.
+      <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
+        Page Six
+      </md-nav-item>
+      -->
+    </md-nav-bar>
+    <!-- <div class="ext-content">
+      External content for `<span>{{currentNavItem}}</span>`.
+    </div> -->
+
+    <!-- <md-checkbox ng-model="disableInkBar">Disable Ink Bar</md-checkbox> -->
+
+  </md-content>
+</div>
+
 
 
   <md-card class="mainCard">
     <md-card-title>
       <md-card-title-text>
-        <span class="md-headline">Admin</span>
+        <span class="md-headline">Card</span>
       </md-card-title-text>
     </md-card-title>
     <md-card-content>
-
-      <div>
-        <md-input-container>
-          <!-- <md-select ng-model="admin.time" placeholder="Minutes until available to everyone"> -->
-            <!-- <md-option ng-value="{{minutes}}" ng-repeat="minutes in [15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180]">{{ minutes }}</md-option> -->
-          <!-- </md-select> -->
-        </md-input-container>
-      </div>
-      <div flex>
-        <md-input-container class="form-group" flex-gt-sm>
-          <label>Notes:</label>
-          <!-- <input flex type="text" name="notes" ng-model="admin.notes"> -->
-        </md-input-container>
-      </div>
-      <div flex>
-        <md-input-container class="form-group" flex-gt-sm>
-          <label>Password</label>
-          <!-- <input flex type="password" name="notes" ng-model="admin.password"> -->
-        </md-input-container>
-      </div>
-      <!-- <md-button type="submit" class="md-raised" ng-click="admin.submit()">Submit</md-button> -->
+      <p>test</p>
     </md-card-content>
   </md-card>
