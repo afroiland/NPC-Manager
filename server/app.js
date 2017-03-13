@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
 var pgConnection = require('./modules/pg-connection');
+var npcs = require('./routes/npcs');
 var app = express();
 
 const LOCALPORT = 3000;
@@ -13,14 +14,15 @@ app.use(express.static('public'));
 // app.use(bodyParser.urlencoded());
 // app.use(bodyParser.json());
 
-//Index.html route
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../public/views/index.html'));
 });
 
-// app.use('/addStudent', addStudent);
+app.use('/npcs', npcs);
 // app.use('/admin', admin);
 // app.use('/pizza', pizza);
+
+pgConnection.connect();
 
 app.listen(portDecision, function() {
   console.log("Listening on port ", portDecision);
