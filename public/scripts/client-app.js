@@ -2,6 +2,8 @@ var app = angular.module('app', ['ngMaterial','ngRoute']);
 
 app.config(function($mdThemingProvider) {
 $mdThemingProvider.theme('default')
+  .primaryPalette("teal")
+  .accentPalette("grey")
   .dark();
 });
 
