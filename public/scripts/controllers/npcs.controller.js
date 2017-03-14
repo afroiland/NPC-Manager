@@ -4,9 +4,9 @@ app.controller('npcsController', ['$http', '$location', function($http, $locatio
 
   self.npcs = [];
 
-  getnpcs();
+  // getnpcs();
 
-  function getnpcs() {
+  self.getnpcs = function() {
     console.log('npcscontroller getnpcs');
     $http.get('/npcs')
       .then(function(response) {
