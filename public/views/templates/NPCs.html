@@ -1,4 +1,25 @@
 
 <md-button class="md-raised md-primary" ng-click="npcs.getnpcs()">Get NPCs</md-button>
 
-{{npcs.npcs[0].name}}
+<md-card class="mainCard" ng-show="npcs.show">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">{{npcs.npcs[0].name}}</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <p>Level {{npcs.npcs[0].level}} {{npcs.npcs[0].class}}</p>
+    <p>HP: {{npcs.npcs[0].currenthp}}/{{npcs.npcs[0].maxhp}}</p>
+    <p>AC: {{npcs.npcs[0].ac}}</p>
+    <p>Str: {{npcs.npcs[0].str}}/{{npcs.npcs[0].ex_str}}<br>
+      Int: {{npcs.npcs[0].int}}<br>
+      Dex: {{npcs.npcs[0].dex}}<br>
+      Con: {{npcs.npcs[0].con}}<br>
+      Wis: {{npcs.npcs[0].wis}}<br>
+      Cha: {{npcs.npcs[0].cha}}</p>
+    <P>Items: {{npcs.npcs[0].items}}</p>
+    <P>Spells: {{npcs.npcs[0].spells}}</p>
+    <P>Notes: {{npcs.npcs[0].notes}}</p>
+    <P>Dialogue: {{npcs.npcs[0].dialogue}}</p>
+  </md-card-content>
+</md-card>

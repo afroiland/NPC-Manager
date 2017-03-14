@@ -4,7 +4,7 @@ var pg = require('pg');
 var connectionString = 'postgres://localhost:5432/NPC';
 
 router.get('/', function(req, res) {
-  console.log('get request');
+  // console.log('get request');
   pg.connect(connectionString, function(err, client, done) {
     if(err) {
       console.log('connection error: ', err);
