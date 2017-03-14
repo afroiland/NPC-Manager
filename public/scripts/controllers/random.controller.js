@@ -11,7 +11,6 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   self.generate = function() {
-    // console.log("test");
     self.newnpc.class = classes[Math.floor(Math.random() * 10)];
     console.log("self.newnpc: ", self.newnpc);
   };
