@@ -2,12 +2,10 @@
 <md-button class="md-raised md-primary" ng-click="npcs.getnpcs()">Get NPCs</md-button>
 
 <div>
-  <form>
-
-  </form>
+  <input type="text" data-ng-model="search"></input>
 </div>
 
-<div ng-repeat="npc in npcs.npcs">
+<div ng-repeat="npc in npcs.npcs | filter: search">
   <md-card class="mainCard" ng-show="npcs.show">
     <md-card-title>
       <md-card-title-text>
