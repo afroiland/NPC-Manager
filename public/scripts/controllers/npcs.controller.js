@@ -21,8 +21,8 @@ app.controller('npcsController', ['$http', '$location', function($http, $locatio
     $http.put('/npcs/' + npc.id, npc)
       .then(function(response) {
         console.log('response.data: ', response.data);
-        self.npcs = response.data;
-        self.show = true;
+        // self.npcs = response.data;
+        // self.show = true;
       });
   }
 
