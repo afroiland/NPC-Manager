@@ -14,7 +14,7 @@ var portDecision = process.env.PORT || LOCALPORT;
 app.use(express.static('public'));
 
 // app.use(bodyParser.urlencoded());
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '../public/views/index.html'));
