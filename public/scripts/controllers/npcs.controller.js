@@ -15,5 +15,15 @@ app.controller('npcsController', ['$http', '$location', function($http, $locatio
       });
   }
 
+  self.update = function() {
+    console.log('updating NPC info');
+    $http.put('/npcs' + npcId)
+      .then(function(response) {
+        console.log('response.data: ', response.data);
+        self.npcs = response.data;
+        self.show = true;
+      });
+  }
+
 
 }]);
