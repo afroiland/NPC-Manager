@@ -19,13 +19,17 @@
       <p>Level {{npc.level}} {{npc.class}}</p>
       <p>HP: {{npc.currenthp}}/{{npc.maxhp}}</p>
       <p>AC: {{npc.ac}}</p>
+
       <p>Str: {{npc.str}}/{{npc.ex_str}}<br>
         Int: {{npc.int}}<br>
         Dex: {{npc.dex}}<br>
         Con: {{npc.con}}<br>
         Wis: {{npc.wis}}<br>
         Cha: {{npc.cha}}</p>
-      <p>Items: {{npc.items}}</p>
+      <md-input-container class="md-block" flex-gt-sm="100" class="itemsInput">
+        <label>Items</label>
+        <input ng-model="npc.items" id="itemsInput">
+      </md-input-container>
       <p>Spells: {{npc.spells}}</p>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Notes</label>
