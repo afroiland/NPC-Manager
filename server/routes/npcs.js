@@ -24,16 +24,16 @@ router.get('/', function(req, res) {
 });
 
 router.put('/:npcId', function(req, res) {
-  console.log('put request');
-  console.log('req.params: ', req.params);
-  console.log('req.body: ', req.body);
+  // console.log('req.params: ', req.params);
+  var info = req.body;
+  // console.log('info: ', info);
   pg.connect(connectionString, function(err, client, done) {
     if(err) {
       console.log('connection error: ', err);
       res.sendStatus(500);
     }
-    client.query('UPDATE ',   //put all the update stuff here once figure out how to send info. req.body is empty, req.params has id and that's it.
-    //[player.new_point_total, playerID],
+    client.query('UPDATE NPCs SET notes=$1 WHERE id=$2',
+    [info.notes, info.id],
     function(err, result) {
       if(err) {
         console.log('update error: ', err);
