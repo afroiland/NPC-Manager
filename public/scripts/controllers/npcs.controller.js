@@ -15,9 +15,10 @@ app.controller('npcsController', ['$http', '$location', function($http, $locatio
       });
   }
 
-  self.update = function() {
+  self.update = function(npc) {
     console.log('updating NPC info');
-    $http.put('/npcs' + npcId)
+    console.log('npc: ', npc);
+    $http.put('/npcs/' + npcId, npc)
       .then(function(response) {
         console.log('response.data: ', response.data);
         self.npcs = response.data;

@@ -23,6 +23,28 @@ router.get('/', function(req, res) {
   });
 });
 
+router.put('/:npcId', function(req, res) {
+  console.log('put request');
+  console.log('req.params: ', req.params);
+  console.log('req.body: ', req.body);
+  pg.connect(connectionString, function(err, client, done) {
+    if(err) {
+      console.log('connection error: ', err);
+      res.sendStatus(500);
+    }
+    client.query('UPDATE ',
+    //[player.new_point_total, playerID],
+    function(err, result) {
+      if(err) {
+        console.log('update error: ', err);
+        res.sendStatus(500);
+      } else {
+        // console.log('successfully updated points for', player.first_name + " " + player.last_name);
+        res.sendStatus(200);
+      }
+    });
+  });
+});
 
 
 module.exports = router;
