@@ -26,11 +26,14 @@
         Con: {{npc.con}}<br>
         Wis: {{npc.wis}}<br>
         Cha: {{npc.cha}}</p>
-      <md-input-container class="md-block" flex-gt-sm="100" class="itemsInput">
+      <md-input-container class="md-block" flex-gt-sm="100">
         <label>Items</label>
-        <input ng-model="npc.items" id="itemsInput">
+        <input ng-model="npc.items">
       </md-input-container>
-      <p>Spells: {{npc.spells}}</p>
+      <md-input-container class="md-block" flex-gt-sm="100">
+        <label>Spells</label>
+        <input ng-model="npc.spells">
+      </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Notes</label>
         <input ng-model="npc.notes">
