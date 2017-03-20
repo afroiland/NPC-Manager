@@ -32,7 +32,7 @@ router.put('/:npcId', function(req, res) {
       console.log('connection error: ', err);
       res.sendStatus(500);
     }
-    client.query('UPDATE ',
+    client.query('UPDATE ',   //put all the update stuff here once figure out how to send info. req.body is empty, req.params has id and that's it.
     //[player.new_point_total, playerID],
     function(err, result) {
       if(err) {
