@@ -21,3 +21,16 @@
 md-input-container {
   margin: 1px 0px 1px 0px;
 }
+
+table {
+  border: 1px solid white;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 4px;
+}
+
+.score {
+  text-align: right;
+}
