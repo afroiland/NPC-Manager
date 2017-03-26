@@ -7,62 +7,66 @@
   </md-input-container>
 </div>
 
+<div>
+  <div ng-repeat="npc in npcs.npcs | filter: search">
+    <md-card class="mainCard" ng-show="npcs.show">
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{npc.name}}</span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-content>
+        <p>Level {{npc.level}} {{npc.class}}</p>
+        <p>HP: {{npc.currenthp}}/{{npc.maxhp}}</p>
+        <p>AC: {{npc.ac}}</p>
 
-<div ng-repeat="npc in npcs.npcs | filter: search">
-  <md-card class="mainCard" ng-show="npcs.show">
-    <md-card-title>
-      <md-card-title-text>
-        <span class="md-headline">{{npc.name}}</span>
-      </md-card-title-text>
-    </md-card-title>
-    <md-card-content>
-      <p>Level {{npc.level}} {{npc.class}}</p>
-      <p>HP: {{npc.currenthp}}/{{npc.maxhp}}</p>
-      <p>AC: {{npc.ac}}</p>
+        <table>
+          <tr>
+            <td>Str</td>
+            <td class="score" ng-hide="npc.ex_str">{{npc.str}}</td>
+            <td class="score" ng-show="npc.ex_str">{{npc.str}}/{{npc.ex_str}}</td>
+          </tr>
+          <tr>
+            <td>Int</td><td class="score">{{npc.int}}</td>
+          </tr>
+          <tr>
+            <td>Dex</td><td class="score">{{npc.dex}}</td>
+          </tr>
+          <tr>
+            <td>Con</td><td class="score">{{npc.con}}</td>
+          </tr>
+          <tr>
+            <td>Wis</td><td class="score">{{npc.wis}}</td>
+          </tr>
+          <tr>
+            <td>Cha</td><td class="score">{{npc.cha}}</td>
+          </tr>
+        </table>
 
-      <table>
-        <tr>
-          <td>Str</td>
-          <td class="score" ng-hide="npc.ex_str">{{npc.str}}</td>
-          <td class="score" ng-show="npc.ex_str">{{npc.str}}/{{npc.ex_str}}</td>
-        </tr>
-        <tr>
-          <td>Int</td><td class="score">{{npc.int}}</td>
-        </tr>
-        <tr>
-          <td>Dex</td><td class="score">{{npc.dex}}</td>
-        </tr>
-        <tr>
-          <td>Con</td><td class="score">{{npc.con}}</td>
-        </tr>
-        <tr>
-          <td>Wis</td><td class="score">{{npc.wis}}</td>
-        </tr>
-        <tr>
-          <td>Cha</td><td class="score">{{npc.cha}}</td>
-        </tr>
-      </table>
-
-      <!-- <p>Str: {{npc.str}}/{{npc.ex_str}}<br>
+        <!-- <p>Str: {{npc.str}}/{{npc.ex_str}}<br>
         Int: {{npc.int}}<br>
         Dex: {{npc.dex}}<br>
         Con: {{npc.con}}<br>
         Wis: {{npc.wis}}<br>
         Cha: {{npc.cha}}</p> -->
-      <md-input-container class="md-block" flex-gt-sm="100">
-        <label>Items</label>
-        <input ng-model="npc.items">
-      </md-input-container>
-      <md-input-container class="md-block" flex-gt-sm="100">
-        <label>Spells</label>
-        <input ng-model="npc.spells">
-      </md-input-container>
-      <md-input-container class="md-block" flex-gt-sm="100">
-        <label>Notes</label>
-        <input ng-model="npc.notes">
-      </md-input-container>
-      <p>Dialogue: {{npc.dialogue}}</p>
-      <md-button class="md-raised md-primary" ng-click="npcs.update(npc)">Update Info</md-button>
-    </md-card-content>
-  </md-card>
+        <md-input-container class="md-block" flex-gt-sm="100">
+          <label>Items</label>
+          <input ng-model="npc.items">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm="100">
+          <label>Spells</label>
+          <input ng-model="npc.spells">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm="100">
+          <label>Notes</label>
+          <input ng-model="npc.notes">
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm="100">
+          <label>Dialogue</label>
+          <input ng-model="npc.dialogue">
+        </md-input-container>
+        <md-button class="md-raised md-primary" ng-click="npcs.update(npc)">Update Info</md-button>
+      </md-card-content>
+    </md-card>
+  </div>
 </div>
