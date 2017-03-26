@@ -25,6 +25,7 @@ md-input-container {
 table {
   border: 1px solid white;
   margin-bottom: 20px;
+  min-width: 90px;
 }
 
 th, td {
