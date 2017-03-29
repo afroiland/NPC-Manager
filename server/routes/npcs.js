@@ -26,14 +26,14 @@ router.get('/', function(req, res) {
 router.put('/:npcId', function(req, res) {
   // console.log('req.params: ', req.params);
   var info = req.body;
-  // console.log('info: ', info);
+  console.log('info: ', info);
   pg.connect(connectionString, function(err, client, done) {
     if(err) {
       console.log('connection error: ', err);
       res.sendStatus(500);
     }
-    client.query('UPDATE NPCs SET notes=$1 WHERE id=$2',
-    [info.notes, info.id],
+    client.query('UPDATE NPCs SET notes=$1, items=$2, dialogue=$3 WHERE id=$4',
+    [info.notes, info.items, info.dialogue, info.id],
     function(err, result) {
       if(err) {
         console.log('update error: ', err);
