@@ -7,10 +7,10 @@
   </md-input-container>
 </div>
 
-<div>
+<!-- <div> -->
 <!-- TODO: Change layout to row or column based on screen size -->
-<!-- <div layout="row"> -->
-  <div ng-repeat="npc in npcs.npcs | filter: search">
+<div layout="column" layout-gt-sm="row">
+  <div ng-repeat="npc in npcs.npcs | filter: search" flex>
     <md-card class="mainCard" ng-show="npcs.show">
       <md-card-title>
         <md-card-title-text>
