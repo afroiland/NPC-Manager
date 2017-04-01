@@ -13,12 +13,14 @@
 }*/
 
 .npcList {
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .mainCard {
   margin-right: 20px;
   margin-top: 40px;
+  min-height: 699px;
+  min-width:
   /*max-width: 50%;*/
 }
 
