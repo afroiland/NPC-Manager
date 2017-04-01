@@ -1,14 +1,13 @@
 
 <div md-theme="docs-dark" layout-gt-sm="row">
-  <!-- <md-button class="md-raised md-primary" ng-click="npcs.getnpcs()">Get NPCs</md-button> -->
   <md-input-container style="margin-left: 22px;">
     <label>Search</label>
     <input type="text" data-ng-model="search"></input>
   </md-input-container>
 </div>
 
-<div  class="npcList" layout="column" layout-gt-sm="row">
-  <div ng-repeat="npc in npcs.npcs | filter: search" flex>
+<div  class="npcList" layout="column" layout-gt-sm="row" style="flex-wrap: wrap">
+  <div ng-repeat="npc in npcs.npcs | filter: search" style="display: inline-block;" flex-gt-sm="50" flex="100">
     <md-card class="mainCard" ng-show="npcs.show">
       <md-card-title>
         <md-card-title-text>
