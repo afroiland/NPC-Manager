@@ -12,8 +12,11 @@
   background-color: magenta;
 }*/
 
-.mainCard {
+.npcList {
   margin-left: 20px;
+}
+
+.mainCard {
   margin-right: 20px;
   margin-top: 40px;
   /*max-width: 50%;*/
