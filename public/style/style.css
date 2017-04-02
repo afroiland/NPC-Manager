@@ -12,6 +12,18 @@
   background-color: magenta;
 }*/
 
+@media screen and (min-width: 960px) {
+  .md-nav-bar {
+    margin-left: 9px;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .md-nav-bar {
+    margin-left: 16px;
+  }
+}
+
 .npcList {
   margin-left: 15px;
 }

@@ -10,11 +10,11 @@ $mdThemingProvider.theme('default')
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix('');
   $routeProvider
-    .when('/home', {
-      templateUrl: '/views/templates/home.html',
-      controller: 'HomeController',
-      controllerAs: 'home'
-    })
+    // .when('/home', {
+    //   templateUrl: '/views/templates/home.html',
+    //   controller: 'HomeController',
+    //   controllerAs: 'home'
+    // })
     .when('/admin', {
       templateUrl: '/views/templates/admin.html',
       controller: 'AdminController',
@@ -36,7 +36,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       controllerAs: 'random'
     })
     .otherwise({
-      redirectTo: '/home'
+      redirectTo: '/NPCs'
     });
 
 }]);
