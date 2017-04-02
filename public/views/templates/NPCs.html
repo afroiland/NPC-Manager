@@ -14,6 +14,12 @@
           <span class="md-headline">{{npc.name}}</span>
         </md-card-title-text>
       </md-card-title>
+
+      <div layout="row">
+        <md-switch class="editSwitch" aria-label="Switch 1" ng-model="npcs.showEdits">Edit NPC</md-switch>
+        <md-button class="md-raised md-primary" ng-show="npcs.showEdits" ng-click="npcs.update(npc)">Update Info</md-button>
+      </div>
+
       <md-card-content>
         <p>Level {{npc.level}} {{npc.class}}</p>
         <p>HP: {{npc.currenthp}}/{{npc.maxhp}}</p>
@@ -58,7 +64,7 @@
           <label>Dialogue</label>
           <input ng-model="npc.dialogue">
         </md-input-container>
-        <md-button class="md-raised md-primary" ng-click="npcs.update(npc)">Update Info</md-button>
+
       </md-card-content>
     </md-card>
   </div>

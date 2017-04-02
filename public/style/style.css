@@ -51,3 +51,12 @@ th, td {
 .score {
   text-align: right;
 }
+
+md-switch {
+  margin-top: 0px;
+  margin-bottom: 7px;
+}
+
+md-switch .md-container {
+  margin-left: 15px;
+}
