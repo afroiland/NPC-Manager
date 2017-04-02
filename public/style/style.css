@@ -24,6 +24,12 @@
   }
 }
 
+@media screen and (min-width: 600px) {
+  md-card md-card-title {
+    max-height: 32px;
+  }
+}
+
 .npcList {
   margin-left: 15px;
 }
