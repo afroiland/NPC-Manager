@@ -15,9 +15,9 @@
         </md-card-title-text>
       </md-card-title>
 
-      <div layout="row">
-        <md-switch class="editSwitch" aria-label="Switch 1" ng-model="npcs.showEdits">Edit NPC</md-switch>
-        <md-button class="md-raised md-primary" ng-show="npcs.showEdits" ng-click="npcs.update(npc)">Update Info</md-button>
+      <div class="updateRow" layout="row">
+        <md-switch class="editSwitch" aria-label="Switch 1" ng-model="npc.showEdits">Edit NPC</md-switch>
+        <md-button class="md-raised md-primary update" ng-show="npc.showEdits" ng-click="npcs.update(npc)">Update Info</md-button>
       </div>
 
       <md-card-content>

@@ -1,16 +1,3 @@
-/** {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent;
-}*/
-
-/*body {
-  background-color: magenta;
-}*/
 
 @media screen and (min-width: 960px) {
   .md-nav-bar {
@@ -58,11 +45,20 @@ th, td {
   text-align: right;
 }
 
+.updateRow {
+
+}
+
 md-switch {
-  margin-top: 0px;
+  margin-top: 9px;
   margin-bottom: 7px;
 }
 
 md-switch .md-container {
   margin-left: 15px;
+}
+
+.update {
+  margin-left: 20px;
+  margin-bottom: 2px;
 }
