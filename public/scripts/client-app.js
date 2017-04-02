@@ -15,11 +15,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     //   controller: 'HomeController',
     //   controllerAs: 'home'
     // })
-    .when('/admin', {
-      templateUrl: '/views/templates/admin.html',
-      controller: 'AdminController',
-      controllerAs: 'admin'
-    })
+    // .when('/admin', {
+    //   templateUrl: '/views/templates/admin.html',
+    //   controller: 'AdminController',
+    //   controllerAs: 'admin'
+    // })
     .when('/NPCs', {
       templateUrl: '/views/templates/NPCs.html',
       controller: 'npcsController',

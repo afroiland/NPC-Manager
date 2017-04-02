@@ -1,5 +1,5 @@
 app.controller('npcsController', ['$http', '$location', function($http, $location) {
-  console.log("NPCs Controller Running");
+  // console.log("NPCs Controller Running");
   const self = this;
 
   self.npcs = [];
@@ -8,10 +8,10 @@ app.controller('npcsController', ['$http', '$location', function($http, $locatio
   getnpcs();
 
   function getnpcs() {
-    console.log('npcscontroller getnpcs');
+    // console.log('npcscontroller getnpcs');
     $http.get('/npcs')
       .then(function(response) {
-        console.log('response.data: ', response.data);
+        // console.log('response.data: ', response.data);
         self.npcs = response.data;
         self.show = true;
       });
