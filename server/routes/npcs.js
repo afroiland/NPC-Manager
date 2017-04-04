@@ -39,12 +39,33 @@ router.put('/:npcId', function(req, res) {
         console.log('update error: ', err);
         res.sendStatus(500);
       } else {
-        // console.log('successfully updated points for', player.first_name + " " + player.last_name);
         res.sendStatus(200);
       }
     });
   });
 });
+
+router.post('/', function(req, res) {
+  var info = req.body;
+  console.log('info: ', info);
+  pg.connect(connectionString, function(err, client, done) {
+    if(err) {
+      console.log('connection error: ', err);
+      res.sendStatus(500);
+    }
+    client.query('INSERT INTO NPCs (name, level, class, MaxHP, CurrentHP, AC, Str, Ex_Str, Int, Dex, Con, Wis, Cha, Items, Notes, Dialogue) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)',
+    [info.name, info.level, info.class, info.maxhp, info.maxhp, info.ac, info.str, info.ex_str, info.int, info.dex, info.con, info.wis, info.cha, info.items, info.notes, info.dialogue],
+    function(err, result) {
+      if(err) {
+        console.log('update error: ', err);
+        res.sendStatus(500);
+      } else {
+        console.log('successfully added npc ' + info.name);
+        res.sendStatus(200);
+      }
+    })
+  })
+})
 
 
 module.exports = router;
