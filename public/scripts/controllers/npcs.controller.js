@@ -3,7 +3,7 @@ app.controller('npcsController', ['$http', '$location', function($http, $locatio
   const self = this;
 
   self.npcs = [];
-  self.show = false;
+  // self.show = false;
 
   getnpcs();
 
@@ -13,7 +13,7 @@ app.controller('npcsController', ['$http', '$location', function($http, $locatio
       .then(function(response) {
         // console.log('response.data: ', response.data);
         self.npcs = response.data;
-        self.show = true;
+        // self.show = true;
       });
   }
 
