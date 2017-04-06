@@ -21,37 +21,42 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
     //Set HP
     if (self.newnpc.class == 'Fighter' || self.newnpc.class == 'Paladin') {
-      let fighterHP = 0;
-      for (i = 0; i < self.newnpc.level; i++) {
+      let fighterHP = 10;
+      for (i = 0; i < self.newnpc.level - 1; i++) {
         fighterHP += Math.floor(Math.random() * 9 + 1);
+        console.log('fighterHP: ', fighterHP);
       }
       self.newnpc.maxhp = fighterHP;
     }
     if (self.newnpc.class == 'Cleric' || self.newnpc.class == 'Ranger') {
-      let clericHP = 0;
-      for (i = 0; i < self.newnpc.level; i++) {
+      let clericHP = 8;
+      for (i = 0; i < self.newnpc.level - 1; i++) {
         clericHP += Math.floor(Math.random() * 7 + 1);
+        console.log('clericHP: ', clericHP);
       }
       self.newnpc.maxhp = clericHP;
     }
     if (self.newnpc.class == 'Mage' || self.newnpc.class == 'Illusionist') {
-      let mageHP = 0;
-      for (i = 0; i < self.newnpc.level; i++) {
+      let mageHP = 4;
+      for (i = 0; i < self.newnpc.level - 1; i++) {
         mageHP += Math.floor(Math.random() * 3 + 1);
+        console.log('mageHP: ', mageHP);
       }
       self.newnpc.maxhp = mageHP;
     }
     if (self.newnpc.class == 'Thief' || self.newnpc.class == 'Assassin') {
-      let thiefHP = 0;
-      for (i = 0; i < self.newnpc.level; i++) {
+      let thiefHP = 6;
+      for (i = 0; i < self.newnpc.level - 1; i++) {
         thiefHP += Math.floor(Math.random() * 5 + 1);
+        console.log('thiefHP: ', thiefHP);
       }
       self.newnpc.maxhp = thiefHP;
     }
     if (self.newnpc.class == 'Monk' || self.newnpc.class == 'Druid') {
-      let monkHP = 0;
-      for (i = 0; i < self.newnpc.level; i++) {
+      let monkHP = 7;
+      for (i = 0; i < self.newnpc.level - 1; i++) {
         monkHP += Math.floor(Math.random() * 6 + 1);
+        console.log('monkHP: ', monkHP);
       }
       self.newnpc.maxhp = monkHP;
     }
