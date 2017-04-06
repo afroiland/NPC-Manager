@@ -18,7 +18,6 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   };
 
   self.add = function(newnpc) {
-    // console.log('button works');
     $http.post('/npcs', newnpc)
       .then(function(response) {
         console.log('response.data: ', response.data);
