@@ -13,18 +13,18 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
   self.generate = function() {
 
-    //Set level between 1-8
+    // Set level between 1-8
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
-    //Set class
+    // Set class randomly
     self.newnpc.class = classes[Math.floor(Math.random() * 10)];
 
-    //Set HP
+    // Set HP based on class and level
     if (self.newnpc.class == 'Fighter' || self.newnpc.class == 'Paladin') {
       let fighterHP = 10;
       for (i = 0; i < self.newnpc.level - 1; i++) {
         fighterHP += Math.floor(Math.random() * 9 + 1);
-        console.log('fighterHP: ', fighterHP);
+        // console.log('fighterHP: ', fighterHP);
       }
       self.newnpc.maxhp = fighterHP;
     }
@@ -32,7 +32,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       let clericHP = 8;
       for (i = 0; i < self.newnpc.level - 1; i++) {
         clericHP += Math.floor(Math.random() * 7 + 1);
-        console.log('clericHP: ', clericHP);
+        // console.log('clericHP: ', clericHP);
       }
       self.newnpc.maxhp = clericHP;
     }
@@ -40,7 +40,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       let mageHP = 4;
       for (i = 0; i < self.newnpc.level - 1; i++) {
         mageHP += Math.floor(Math.random() * 3 + 1);
-        console.log('mageHP: ', mageHP);
+        // console.log('mageHP: ', mageHP);
       }
       self.newnpc.maxhp = mageHP;
     }
@@ -48,7 +48,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       let thiefHP = 6;
       for (i = 0; i < self.newnpc.level - 1; i++) {
         thiefHP += Math.floor(Math.random() * 5 + 1);
-        console.log('thiefHP: ', thiefHP);
+        // console.log('thiefHP: ', thiefHP);
       }
       self.newnpc.maxhp = thiefHP;
     }
@@ -56,19 +56,25 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       let monkHP = 7;
       for (i = 0; i < self.newnpc.level - 1; i++) {
         monkHP += Math.floor(Math.random() * 6 + 1);
-        console.log('monkHP: ', monkHP);
+        // console.log('monkHP: ', monkHP);
       }
       self.newnpc.maxhp = monkHP;
     }
 
+    // Set AC based on class
 
+    // Set attributes based on class
+
+    // Set tiems basedon class
+
+    //Set spells based on class and level
 
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
   };
 
 
-
+  // Add npc to database
   self.add = function(newnpc) {
     $http.post('/npcs', newnpc)
       .then(function(response) {
