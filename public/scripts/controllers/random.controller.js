@@ -12,10 +12,27 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   self.generate = function() {
+
+    //Set level between 1-8
+    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+
+    //Set class
     self.newnpc.class = classes[Math.floor(Math.random() * 10)];
+
+    //Set HP
+    if (self.newnpc.class == 'Fighter' || self.newnpc.class == 'Paladin') {
+      let fighterHP = 0;
+      for (i = 0; i < self.newnpc.level; i++) {
+        fighterHP += Math.floor(Math.random() * 9 + 1);
+      }
+      self.newnpc.maxhp = fighterHP;
+    }
+
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
   };
+
+
 
   self.add = function(newnpc) {
     $http.post('/npcs', newnpc)
