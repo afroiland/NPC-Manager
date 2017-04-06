@@ -10,8 +10,77 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   var clSpellsLv2=["chant", "detect charm", "hold person", "know alignment", "resist fire", "silence 15' radius", "slow poison", "snake charm", "speak with animals", "spiritual hammer"]
   var muSpellsLv1=["burning hands", "charm person", "sleep", "magic missile", "detect magic", "light", "shocking grasp", "feather fall", "shield", "protection from evil"]
 
-
   self.generate = function() {
+    // switch (Math.floor(Math.random() * 10)) {
+    switch (0) {
+      case 0:
+      generateFighter();
+      break;
+      case 1:
+      generateCleric();
+      break;
+      case 2:
+      generateMage();
+      break;
+      case 3:
+      generateThief();
+      break;
+      case 4:
+      generateMonk();
+      break;
+      case 5:
+      generateDruid();
+      break;
+      case 6:
+      generatePaladin();
+      break;
+      case 7:
+      generateRanger();
+      break;
+      case 8:
+      generateIllusionist();
+      break;
+      case 9:
+      generateAssassin();
+      break;
+    }
+  }
+
+  function generateFighter() {
+    self.newnpc.class = 'Fighter'
+    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+    let fighterHP = 10;
+    for (i = 0; i < self.newnpc.level - 1; i++) {
+      fighterHP += Math.floor(Math.random() * 9 + 1);
+      // console.log('fighterHP: ', fighterHP);
+    }
+    self.newnpc.maxhp = fighterHP;
+
+    self.newnpc.str = 0;
+    for (i = 0; self.newnpc.str < 9; i++) {
+      console.log('test');
+      self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+      if (self.newnpc.str >= 15) {
+        self.newnpc.ex_str = Math.floor(Math.random() * 100);
+      } else {
+        self.newnpc.ex_str = 0;
+      }
+    }
+
+
+    console.log("self.newnpc: ", self.newnpc);
+    self.showcard = true;
+  }
+
+
+
+
+
+
+
+
+
+  self.oldgenerate = function() {
 
     // Set level between 1-8
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -64,8 +133,17 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set AC based on class
 
     // Set attributes based on class
+    if (self.newnpc.class == 'Fighter') {
+      for (i = 0; self.newnpc.str < 9; i++) {
+        self.newnpc.str = (Math.floor(Math.random() * 5) + 1) + (Math.floor(Math.random() * 5) + 1) + (Math.floor(Math.random() * 5) + 1);
+      }
+      if (self.newnpc.str = 18) {
+        self.newnpc.ex_str = Math.floor(Math.random() * 100);
+      }
 
-    // Set tiems basedon class
+    }
+
+    // Set items based on class
 
     //Set spells based on class and level
 
