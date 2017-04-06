@@ -27,6 +27,36 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       }
       self.newnpc.maxhp = fighterHP;
     }
+    if (self.newnpc.class == 'Cleric' || self.newnpc.class == 'Ranger') {
+      let clericHP = 0;
+      for (i = 0; i < self.newnpc.level; i++) {
+        clericHP += Math.floor(Math.random() * 7 + 1);
+      }
+      self.newnpc.maxhp = clericHP;
+    }
+    if (self.newnpc.class == 'Mage' || self.newnpc.class == 'Illusionist') {
+      let mageHP = 0;
+      for (i = 0; i < self.newnpc.level; i++) {
+        mageHP += Math.floor(Math.random() * 3 + 1);
+      }
+      self.newnpc.maxhp = mageHP;
+    }
+    if (self.newnpc.class == 'Thief' || self.newnpc.class == 'Assassin') {
+      let thiefHP = 0;
+      for (i = 0; i < self.newnpc.level; i++) {
+        thiefHP += Math.floor(Math.random() * 5 + 1);
+      }
+      self.newnpc.maxhp = thiefHP;
+    }
+    if (self.newnpc.class == 'Monk' || self.newnpc.class == 'Druid') {
+      let monkHP = 0;
+      for (i = 0; i < self.newnpc.level; i++) {
+        monkHP += Math.floor(Math.random() * 6 + 1);
+      }
+      self.newnpc.maxhp = monkHP;
+    }
+
+
 
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
