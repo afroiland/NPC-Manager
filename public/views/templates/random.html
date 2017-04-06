@@ -1,7 +1,7 @@
 
-<md-button class="md-raised md-primary" ng-click="random.generate()">Generate NPC</md-button>
+<md-button id="generate" class="md-raised md-primary" ng-click="random.generate()">Generate NPC</md-button>
 
-<div class="npcList" ng-show="random.newnpc">
+<div class="npcList" ng-show="random.showcard">
   <md-card class="mainCard">
     <md-card-title>
       <md-card-title-text>
@@ -12,11 +12,11 @@
     <md-card-content>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Name</label>
-        <input ng-model="newnpc.name">
+        <input ng-model="random.newnpc.name">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Level</label>
-        <input ng-model="newnpc.level">
+        <input ng-model="random.newnpc.level">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Class</label>
@@ -24,11 +24,11 @@
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Hit Points</label>
-        <input ng-model="newnpc.maxhp">
+        <input ng-model="random.newnpc.maxhp">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Armor Class</label>
-        <input ng-model="newnpc.ac">
+        <input ng-model="random.newnpc.ac">
       </md-input-container>
 
       <table>
@@ -56,21 +56,21 @@
 
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Items</label>
-        <input ng-model="newnpc.items">
+        <input ng-model="random.newnpc.items">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Spells</label>
-        <input ng-model="newnpc.spells">
+        <input ng-model="random.newnpc.spells">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Notes</label>
-        <input ng-model="newnpc.notes">
+        <input ng-model="random.newnpc.notes">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Dialogue</label>
-        <input ng-model="newnpc.dialogue">
+        <input ng-model="random.newnpc.dialogue">
       </md-input-container>
-      <md-button class="md-raised md-primary" ng-click="addnpc.add(newnpc)">Add NPC</md-button>
+      <md-button class="md-raised md-primary" ng-click="random.add(random.newnpc)">Add NPC</md-button>
     </md-card-content>
   </md-card>
 </div>

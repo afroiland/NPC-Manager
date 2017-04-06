@@ -1,8 +1,9 @@
 app.controller('RandomController', ['$http', '$location', function($http, $location) {
-  console.log("Random Controller Running");
+  // console.log("Random Controller Running");
   const self = this;
 
   self.newnpc = {};
+  self.showcard = false;
 
   var classes=["Fighter", "Cleric", "Mage", "Thief", "Monk", "Druid", "Paladin", "Ranger", "Illusionist", "Assassin"]
   var clSpellsLv1=["cure light wounds", "light", "bless", "command", "create water", "detect magic", "protection from evil", "purify food and drink", "remove fear", "sanctuary"]
@@ -13,8 +14,16 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   self.generate = function() {
     self.newnpc.class = classes[Math.floor(Math.random() * 10)];
     console.log("self.newnpc: ", self.newnpc);
+    self.showcard = true;
   };
 
+  self.add = function(newnpc) {
+    // console.log('button works');
+    $http.post('/npcs', newnpc)
+      .then(function(response) {
+        console.log('response.data: ', response.data);
+      });
+  }
 
 
 
