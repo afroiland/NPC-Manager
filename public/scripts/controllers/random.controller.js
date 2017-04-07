@@ -51,16 +51,50 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
     let fighterHP = 10;
     for (i = 0; i < self.newnpc.level - 1; i++) {
-      fighterHP += Math.floor(Math.random() * 9 + 1);
+      fighterHP += Math.floor(Math.random() * 10 + 1);
       // console.log('fighterHP: ', fighterHP);
     }
     self.newnpc.maxhp = fighterHP;
+
+    // Set fighter attributes (Str must be 9+)
+    self.newnpc.str = 0;
+    for (i = 0; self.newnpc.str < 9; i++) {
+      self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+      if (self.newnpc.str == 18) {
+        self.newnpc.ex_str = Math.floor(Math.random() * 100);
+      } else {
+        self.newnpc.ex_str = 0;
+      }
+    }
+    self.newnpc.int = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.dex = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.con = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.wis = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+
+
+
+
+    console.log("self.newnpc: ", self.newnpc);
+    self.showcard = true;
+  }
+
+
+  function generateCleric() {
+    self.newnpc.class = 'Cleric'
+    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+    let clericHP = 8;
+    for (i = 0; i < self.newnpc.level - 1; i++) {
+      clericHP += Math.floor(Math.random() * 8 + 1);
+      // console.log('fighterHP: ', fighterHP);
+    }
+    self.newnpc.maxhp = clericHP;
 
     self.newnpc.str = 0;
     for (i = 0; self.newnpc.str < 9; i++) {
       console.log('test');
       self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
-      if (self.newnpc.str >= 15) {
+      if (self.newnpc.str == 18) {
         self.newnpc.ex_str = Math.floor(Math.random() * 100);
       } else {
         self.newnpc.ex_str = 0;
@@ -68,10 +102,10 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     }
 
 
+
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
   }
-
 
 
 
