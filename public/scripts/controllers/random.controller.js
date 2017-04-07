@@ -12,7 +12,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
   self.generate = function() {
     // switch (Math.floor(Math.random() * 10)) {
-    switch (0) {
+    switch (1) {
       case 0:
       generateFighter();
       break;
@@ -68,12 +68,12 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.wis = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
 
-    // Set HP based on level and con. First level receives max hp
+    // Set HP based on level. First level receives max hp
     let fighterHP = 10;
     for (i = 0; i < self.newnpc.level - 1; i++) {
       fighterHP += Math.floor(Math.random() * 10 + 1);
     }
-    console.log(fighterHP);
+    // Add con bonus
     if (self.newnpc.con == 15) {
       fighterHP += (self.newnpc.level);
     } else if (self.newnpc.con == 16) {
@@ -102,13 +102,6 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
-    // Set HP based on level. First level receives max hp
-    let clericHP = 8;
-    for (i = 0; i < self.newnpc.level - 1; i++) {
-      clericHP += Math.floor(Math.random() * 8 + 1);
-    }
-    self.newnpc.maxhp = clericHP;
-
     // Set cleric attributes
     self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     self.newnpc.int = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
@@ -119,6 +112,19 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       self.newnpc.wis = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
     self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+
+    // Set HP based on level. First level receives max hp
+    let clericHP = 8;
+    for (i = 0; i < self.newnpc.level - 1; i++) {
+      clericHP += Math.floor(Math.random() * 8 + 1);
+    }
+    // Add con bonus
+    if (self.newnpc.con == 15) {
+      clericHP += (self.newnpc.level);
+    } else if (self.newnpc.con == 16 || self.newnpc.con == 17 || self.newnpc.con == 18) {
+      clericHP += (self.newnpc.level * 2);
+    }
+    self.newnpc.maxhp = clericHP;
 
     // Set AC bewteen 3-9
     self.newnpc.ac = (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1);
@@ -131,17 +137,17 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateMage() {
-    self.newnpc.class = 'Cleric'
+    self.newnpc.class = 'Magic-User'
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
     // Set HP based on level. First level receives max hp
-    let clericHP = 8;
+    let mageHP = 8;
     for (i = 0; i < self.newnpc.level - 1; i++) {
-      clericHP += Math.floor(Math.random() * 8 + 1);
+      mageHP += Math.floor(Math.random() * 8 + 1);
     }
-    self.newnpc.maxhp = clericHP;
+    self.newnpc.maxhp = mageHP;
 
     // Set cleric attributes
     self.newnpc.str = 0;
