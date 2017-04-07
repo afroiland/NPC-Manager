@@ -158,7 +158,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   }
 
 
-  function generateCleri() {
+  function generateThief() {
     self.newnpc.class = 'Cleric'
 
     // Set level between 1-7
@@ -186,7 +186,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   }
 
 
-  function generateCleri() {
+  function generateMonk() {
     self.newnpc.class = 'Cleric'
 
     // Set level between 1-7
@@ -214,7 +214,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   }
 
 
-  function generateCleri() {
+  function generateDruid() {
     self.newnpc.class = 'Cleric'
 
     // Set level between 1-7
@@ -242,7 +242,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   }
 
 
-  function generateCleri() {
+  function generatePaladin() {
     self.newnpc.class = 'Cleric'
 
     // Set level between 1-7
@@ -270,7 +270,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   }
 
 
-  function generateCleri() {
+  function generateRanger() {
     self.newnpc.class = 'Cleric'
 
     // Set level between 1-7
@@ -298,7 +298,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   }
 
 
-  function generateCleri() {
+  function generateIllusionist() {
     self.newnpc.class = 'Cleric'
 
     // Set level between 1-7
@@ -326,7 +326,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   }
 
 
-  function generateCleri() {
+  function generateAssassin() {
     self.newnpc.class = 'Cleric'
 
     // Set level between 1-7
