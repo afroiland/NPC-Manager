@@ -174,6 +174,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
     // Set items
 
+    // Set spells (at some point)
 
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
@@ -260,7 +261,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set AC based on...level?
 
     // Set items
-    
+
 
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
