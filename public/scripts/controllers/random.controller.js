@@ -211,7 +211,18 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.maxhp = thiefHP;
 
     // Set AC bewteen 8-10
-    self.newnpc.ac = (Math.floor(Math.random() * 4) + 1) + 6;
+    let baseAC = (Math.floor(Math.random() * 4) + 1) + 6;
+    // Dex bonus
+    if (self.newnpc.dex == 15) {
+      baseAC -= 1;
+    } else if (self.newnpc.dex == 16) {
+      baseAC -= 2;
+    } else if (self.newnpc.dex == 17) {
+      baseAC -= 3;
+    } else if (self.newnpc.dex == 18) {
+      baseAC -= 4;
+    }
+    self.newnpc.ac = baseAC;
 
     // Set items
 
