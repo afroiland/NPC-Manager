@@ -12,7 +12,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
   self.generate = function() {
     // switch (Math.floor(Math.random() * 10)) {
-    switch (2) {
+    switch (3) {
       case 0:
       generateFighter();
       break;
@@ -161,7 +161,6 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     for (i = 0; i < self.newnpc.level - 1; i++) {
       mageHP += Math.floor(Math.random() * 4 + 1);
     }
-    console.log(mageHP);
     // Add con bonus
     if (self.newnpc.con == 15) {
       mageHP += (self.newnpc.level);
@@ -182,27 +181,40 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateThief() {
-    self.newnpc.class = 'Cleric'
+    self.newnpc.class = 'Thief'
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
+    // Set thief attributes (Dex must be 9+)
+    self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.int = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.dex = 0
+    for (i = 0; self.newnpc.dex < 9; i++) {
+      self.newnpc.dex = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    }
+    self.newnpc.con = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.wis = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+
     // Set HP based on level. First level receives max hp
-    let clericHP = 8;
+    let thiefHP = 6;
     for (i = 0; i < self.newnpc.level - 1; i++) {
-      clericHP += Math.floor(Math.random() * 8 + 1);
+      thiefHP += Math.floor(Math.random() * 6 + 1);
     }
-    self.newnpc.maxhp = clericHP;
-
-    // Set cleric attributes
-    self.newnpc.str = 0;
-    for (i = 0; self.newnpc.str < 9; i++) {
-      self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    // Add con bonus
+    if (self.newnpc.con == 15) {
+      thiefHP += (self.newnpc.level);
+    } else if (self.newnpc.con == 16 || self.newnpc.con == 17 || self.newnpc.con == 18) {
+      thiefHP += (self.newnpc.level * 2);
     }
+    self.newnpc.maxhp = thiefHP;
 
-    // Set AC bewteen
+    // Set AC bewteen 8-10
+    self.newnpc.ac = (Math.floor(Math.random() * 4) + 1) + 6;
 
     // Set items
+
 
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
