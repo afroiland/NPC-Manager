@@ -233,27 +233,34 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateMonk() {
-    self.newnpc.class = 'Cleric'
+    self.newnpc.class = 'Monk'
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
-    // Set HP based on level. First level receives max hp
-    let clericHP = 8;
-    for (i = 0; i < self.newnpc.level - 1; i++) {
-      clericHP += Math.floor(Math.random() * 8 + 1);
-    }
-    self.newnpc.maxhp = clericHP;
-
-    // Set cleric attributes
+    // Set monk attributes (several requirements)
     self.newnpc.str = 0;
     for (i = 0; self.newnpc.str < 9; i++) {
       self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
 
-    // Set AC bewteen
+    // Set HP based on level. First level receives max hp
+    let monkHP = 8;
+    for (i = 0; i < self.newnpc.level - 1; i++) {
+      monkHP += Math.floor(Math.random() * 4 + 1);
+    }
+    // Add con bonus
+    if (self.newnpc.con == 15) {
+      monkHP += (self.newnpc.level);
+    } else if (self.newnpc.con == 16 || self.newnpc.con == 17 || self.newnpc.con == 18) {
+      monkHP += (self.newnpc.level * 2);
+    }
+    self.newnpc.maxhp = monkHP;
+
+    // Set AC based on...level?
 
     // Set items
+    
 
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
