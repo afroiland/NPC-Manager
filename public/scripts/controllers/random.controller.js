@@ -69,12 +69,12 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.wis = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
 
-    // Set HP based on level. First level receives max hp
+    // Set HP based on level. First level receives max HP
     let hp = 10;
     for (i = 0; i < self.newnpc.level - 1; i++) {
       hp += Math.floor(Math.random() * 10 + 1);
     }
-    // Adjust hp for Con
+    // adjust HP for Con
     if (self.newnpc.con == 15) {
       hp += (self.newnpc.level);
     } else if (self.newnpc.con == 16) {
@@ -87,7 +87,18 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.maxhp = hp;
 
     // Set AC between 3-9 (bell curve)
-    self.newnpc.ac = (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1);
+    let ac = (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1);
+    // Adjust AC for Dex
+    if (self.newnpc.dex == 15) {
+      ac -= 1;
+    } else if (self.newnpc.dex == 16) {
+      ac -= 2;
+    } else if (self.newnpc.dex == 17) {
+      ac -= 3;
+    } else if (self.newnpc.dex == 18) {
+      ac -= 4;
+    }
+    self.newnpc.ac = ac;
 
     // Set items
 
@@ -115,12 +126,12 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     }
     self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
 
-    // Set HP based on level. First level receives max hp
+    // Set HP based on level. First level receives max HP
     let hp = 8;
     for (i = 0; i < self.newnpc.level - 1; i++) {
       hp += Math.floor(Math.random() * 8 + 1);
     }
-    // Adjust hp for Con
+    // adjust HP for Con
     if (self.newnpc.con == 15) {
       hp += (self.newnpc.level);
     } else if (self.newnpc.con == 16 || self.newnpc.con == 17 || self.newnpc.con == 18) {
@@ -129,7 +140,18 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.maxhp = hp;
 
     // Set AC bewteen 3-9
-    self.newnpc.ac = (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1);
+    let ac = (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1);
+    // Adjust AC for Dex
+    if (self.newnpc.dex == 15) {
+      ac -= 1;
+    } else if (self.newnpc.dex == 16) {
+      ac -= 2;
+    } else if (self.newnpc.dex == 17) {
+      ac -= 3;
+    } else if (self.newnpc.dex == 18) {
+      ac -= 4;
+    }
+    self.newnpc.ac = ac;
 
     // Set items
 
@@ -159,13 +181,13 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.wis = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
 
-    // Set HP based on level. First level receives max hp
+    // Set HP based on level. First level receives max HP
     let hp = 4;
     for (i = 0; i < self.newnpc.level - 1; i++) {
       hp += Math.floor(Math.random() * 4 + 1);
     }
     console.log(hp);
-    // Adjust hp for Con
+    // adjust HP for Con
     if (self.newnpc.con == 15) {
       hp += (self.newnpc.level);
     } else if (self.newnpc.con == 16 || self.newnpc.con == 17 || self.newnpc.con == 18) {
@@ -174,7 +196,18 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.maxhp = hp;
 
     // Set AC
-    self.newnpc.ac = 10;
+    let ac = 10;
+    // Adjust AC for Dex
+    if (self.newnpc.dex == 15) {
+      ac -= 1;
+    } else if (self.newnpc.dex == 16) {
+      ac -= 2;
+    } else if (self.newnpc.dex == 17) {
+      ac -= 3;
+    } else if (self.newnpc.dex == 18) {
+      ac -= 4;
+    }
+    self.newnpc.ac = ac;
 
     // Set items
 
@@ -203,12 +236,12 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.wis = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
 
-    // Set HP based on level. First level receives max hp
+    // Set HP based on level. First level receives max HP
     let hp = 6;
     for (i = 0; i < self.newnpc.level - 1; i++) {
       hp += Math.floor(Math.random() * 6 + 1);
     }
-    // Adjust hp for Con
+    // adjust HP for Con
     if (self.newnpc.con == 15) {
       hp += (self.newnpc.level);
     } else if (self.newnpc.con == 16 || self.newnpc.con == 17 || self.newnpc.con == 18) {
@@ -217,18 +250,18 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.maxhp = hp;
 
     // Set AC bewteen 8-10
-    let baseAC = (Math.floor(Math.random() * 4) + 1) + 6;
+    let ac = (Math.floor(Math.random() * 4) + 1) + 6;
     // Adjust AC for Dex
     if (self.newnpc.dex == 15) {
-      baseAC -= 1;
+      ac -= 1;
     } else if (self.newnpc.dex == 16) {
-      baseAC -= 2;
+      ac -= 2;
     } else if (self.newnpc.dex == 17) {
-      baseAC -= 3;
+      ac -= 3;
     } else if (self.newnpc.dex == 18) {
-      baseAC -= 4;
+      ac -= 4;
     }
-    self.newnpc.ac = baseAC;
+    self.newnpc.ac = ac;
 
     // Set items
 
@@ -251,12 +284,12 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
 
-    // Set HP based on level. First level receives max hp
+    // Set HP based on level. First level receives max HP
     let monkHP = 8;
     for (i = 0; i < self.newnpc.level - 1; i++) {
       monkHP += Math.floor(Math.random() * 4 + 1);
     }
-    // Adjust hp for Con
+    // adjust HP for Con
     if (self.newnpc.con == 15) {
       monkHP += (self.newnpc.level);
     } else if (self.newnpc.con == 16 || self.newnpc.con == 17 || self.newnpc.con == 18) {
@@ -280,7 +313,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
-    // Set HP based on level. First level receives max hp
+    // Set HP based on level. First level receives max HP
     let clericHP = 8;
     for (i = 0; i < self.newnpc.level - 1; i++) {
       clericHP += Math.floor(Math.random() * 8 + 1);
@@ -296,6 +329,18 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
     // Set AC bewteen
 
+    // Adjust AC for Dex
+    if (self.newnpc.dex == 15) {
+      ac -= 1;
+    } else if (self.newnpc.dex == 16) {
+      ac -= 2;
+    } else if (self.newnpc.dex == 17) {
+      ac -= 3;
+    } else if (self.newnpc.dex == 18) {
+      ac -= 4;
+    }
+    self.newnpc.ac = ac;
+
     // Set items
 
     console.log("self.newnpc: ", self.newnpc);
@@ -309,7 +354,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
-    // Set HP based on level. First level receives max hp
+    // Set HP based on level. First level receives max HP
     let clericHP = 8;
     for (i = 0; i < self.newnpc.level - 1; i++) {
       clericHP += Math.floor(Math.random() * 8 + 1);
@@ -322,9 +367,22 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
 
-    // Set AC bewteen
+    // Set AC bewteen 3-9
+    let ac = (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1);
+    // Adjust AC for Dex
+    if (self.newnpc.dex == 15) {
+      ac -= 1;
+    } else if (self.newnpc.dex == 16) {
+      ac -= 2;
+    } else if (self.newnpc.dex == 17) {
+      ac -= 3;
+    } else if (self.newnpc.dex == 18) {
+      ac -= 4;
+    }
+    self.newnpc.ac = ac;
 
     // Set items
+
 
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
@@ -337,7 +395,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
-    // Set HP based on level. First level receives max hp
+    // Set HP based on level. First level receives max HP
     let clericHP = 8;
     for (i = 0; i < self.newnpc.level - 1; i++) {
       clericHP += Math.floor(Math.random() * 8 + 1);
@@ -365,7 +423,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
-    // Set HP based on level. First level receives max hp
+    // Set HP based on level. First level receives max HP
     let clericHP = 8;
     for (i = 0; i < self.newnpc.level - 1; i++) {
       clericHP += Math.floor(Math.random() * 8 + 1);
@@ -379,7 +437,19 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
 
-    // Set AC bewteen
+    // Set AC
+    let ac = 10;
+    // Adjust AC for Dex
+    if (self.newnpc.dex == 15) {
+      ac -= 1;
+    } else if (self.newnpc.dex == 16) {
+      ac -= 2;
+    } else if (self.newnpc.dex == 17) {
+      ac -= 3;
+    } else if (self.newnpc.dex == 18) {
+      ac -= 4;
+    }
+    self.newnpc.ac = ac;
 
     // Set items
 
@@ -394,7 +464,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
-    // Set HP based on level. First level receives max hp
+    // Set HP based on level. First level receives max HP
     let clericHP = 8;
     for (i = 0; i < self.newnpc.level - 1; i++) {
       clericHP += Math.floor(Math.random() * 8 + 1);
@@ -410,6 +480,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set AC bewteen
 
     // Set items
+
 
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
