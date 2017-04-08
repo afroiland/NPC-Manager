@@ -10,7 +10,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   var muSpellsLv1=["burning hands", "charm person", "sleep", "magic missile", "detect magic", "light", "shocking grasp", "feather fall", "shield", "protection from evil"]
 
   self.generate = function() {
-    switch (Math.floor(Math.random() * 5)) {
+    switch (Math.floor(Math.random() * 4)) {
     // switch (2) {
       case 0:
       generateFighter();
@@ -133,7 +133,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // adjust HP for Con
     if (self.newnpc.con == 15) {
       hp += (self.newnpc.level);
-    } else if (self.newnpc.con == 16 || self.newnpc.con == 17 || self.newnpc.con == 18) {
+    } else if (self.newnpc.con > 15) {
       hp += (self.newnpc.level * 2);
     }
     self.newnpc.maxhp = hp;
@@ -189,7 +189,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // adjust HP for Con
     if (self.newnpc.con == 15) {
       hp += (self.newnpc.level);
-    } else if (self.newnpc.con == 16 || self.newnpc.con == 17 || self.newnpc.con == 18) {
+    } else if (self.newnpc.con > 15) {
       hp += (self.newnpc.level * 2);
     }
     self.newnpc.maxhp = hp;
@@ -243,7 +243,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // adjust HP for Con
     if (self.newnpc.con == 15) {
       hp += (self.newnpc.level);
-    } else if (self.newnpc.con == 16 || self.newnpc.con == 17 || self.newnpc.con == 18) {
+    } else if (self.newnpc.con > 15) {
       hp += (self.newnpc.level * 2);
     }
     self.newnpc.maxhp = hp;
