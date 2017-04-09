@@ -307,7 +307,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateDruid() {
-    self.newnpc.class = 'Cleric'
+    self.newnpc.class = 'Druid'
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -348,7 +348,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generatePaladin() {
-    self.newnpc.class = 'Cleric'
+    self.newnpc.class = 'Paladin'
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -389,7 +389,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateRanger() {
-    self.newnpc.class = 'Cleric'
+    self.newnpc.class = 'Ranger'
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -417,7 +417,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateIllusionist() {
-    self.newnpc.class = 'Cleric'
+    self.newnpc.class = 'Illusionist'
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -458,7 +458,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateAssassin() {
-    self.newnpc.class = 'Cleric'
+    self.newnpc.class = 'Assassin'
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
