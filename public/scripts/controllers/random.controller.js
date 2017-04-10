@@ -11,7 +11,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
   self.generate = function() {
     // switch (Math.floor(Math.random() * 4)) {
-    switch (7) {
+    switch (8) {
       case 0:
       generateFighter();
       break;
@@ -546,17 +546,25 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
-    // Set illusionust attributes ()
-    self.newnpc.str = 0;
+    // Set illusionust attributes (Int must be 15+, Dex 16+)
+    self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     self.newnpc.ex_str = 0;
-    for (i = 0; self.newnpc.str < 9; i++) {
-      self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.int = 0;
+    for (i = 0; self.newnpc.int < 15; i++) {
+      self.newnpc.int = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
+    self.newnpc.dex = 0
+    for (i = 0; self.newnpc.dex < 16; i++) {
+      self.newnpc.dex = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    }
+    self.newnpc.con = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.wis = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
 
     // Set HP based on level. First level receives max HP
-    let hp = 8;
+    let hp = 4;
     for (i = 0; i < self.newnpc.level - 1; i++) {
-      hp += Math.floor(Math.random() * 8 + 1);
+      hp += Math.floor(Math.random() * 4 + 1);
     }
     // adjust HP for Con
     if (self.newnpc.con == 15) {
