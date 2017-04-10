@@ -276,27 +276,59 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
-    // Set monk attributes (several requirements)
-    self.newnpc.str = 0;
-    self.newnpc.ex_str = 0;
-    for (i = 0; self.newnpc.str < 9; i++) {
+    // Set monk attributes (Str must be 15+, Wis 15+, Dex 15+, Con 11+)
+    for (i = 0; self.newnpc.str < 15; i++) {
       self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
+    self.newnpc.int = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    for (i = 0; self.newnpc.dex < 15; i++) {
+      self.newnpc.dex = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    }
+    for (i = 0; self.newnpc.con < 11; i++) {
+      self.newnpc.con = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    }
+    for (i = 0; self.newnpc.wis < 15; i++) {
+      self.newnpc.wis = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    }
+    self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
 
     // Set HP based on level. First level receives max HP
-    let monkHP = 8;
+    let hp = 8;
     for (i = 0; i < self.newnpc.level - 1; i++) {
-      monkHP += Math.floor(Math.random() * 4 + 1);
+      hp += Math.floor(Math.random() * 4 + 1);
     }
     // adjust HP for Con
     if (self.newnpc.con == 15) {
-      monkHP += (self.newnpc.level);
-    } else if (self.newnpc.con == 16 || self.newnpc.con == 17 || self.newnpc.con == 18) {
-      monkHP += (self.newnpc.level * 2);
+      hp += (self.newnpc.level);
+    } else if (self.newnpc.con > 15) {
+      hp += (self.newnpc.level * 2);
     }
-    self.newnpc.maxhp = monkHP;
+    self.newnpc.maxhp = hp;
 
-    // Set AC based on...level?
+    // Set AC based on level
+    switch (self.newnpc.level) {
+      case 1:
+      self.newnpc.ac = 10;
+      break;
+      case 2:
+      self.newnpc.ac = 9;
+      break;
+      case 3:
+      self.newnpc.ac = 8;
+      break;
+      case 4:
+      self.newnpc.ac = 7;
+      break;
+      case 5:
+      self.newnpc.ac = 7;
+      break;
+      case 6:
+      self.newnpc.ac = 6;
+      break;
+      case 7:
+      self.newnpc.ac = 5;
+      break;
+    }
 
     // Set items
 
