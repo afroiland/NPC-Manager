@@ -11,7 +11,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
   self.generate = function() {
     // switch (Math.floor(Math.random() * 4)) {
-    switch (8) {
+    switch (9) {
       case 0:
       generateFighter();
       break;
@@ -590,6 +590,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
     // Set items
 
+
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
   }
@@ -601,16 +602,28 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
-    // Set assassin attributes ()
+    // Set assassin attributes (Str must be 12+, Int 11+, Dex 12+)
     self.newnpc.str = 0;
-    for (i = 0; self.newnpc.str < 9; i++) {
+    for (i = 0; self.newnpc.str < 12; i++) {
       self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
+    self.newnpc.ex_str = 0;
+    self.newnpc.int = 0;
+    for (i = 0; self.newnpc.int < 11; i++) {
+      self.newnpc.int = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    }
+    self.newnpc.dex = 0
+    for (i = 0; self.newnpc.dex < 12; i++) {
+      self.newnpc.dex = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    }
+    self.newnpc.con = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.wis = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
 
     // Set HP based on level. First level receives max HP
-    let hp = 8;
+    let hp = 6;
     for (i = 0; i < self.newnpc.level - 1; i++) {
-      hp += Math.floor(Math.random() * 8 + 1);
+      hp += Math.floor(Math.random() * 6 + 1);
     }
     // adjust HP for Con
     if (self.newnpc.con == 15) {
@@ -620,7 +633,19 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     }
     self.newnpc.maxhp = hp;
 
-    // Set AC bewteen
+    // Set AC bewteen 8-10
+    let ac = (Math.floor(Math.random() * 4) + 1) + 6;
+    // Adjust AC for Dex
+    if (self.newnpc.dex == 15) {
+      ac -= 1;
+    } else if (self.newnpc.dex == 16) {
+      ac -= 2;
+    } else if (self.newnpc.dex == 17) {
+      ac -= 3;
+    } else if (self.newnpc.dex == 18) {
+      ac -= 4;
+    }
+    self.newnpc.ac = ac;
 
     // Set items
 
