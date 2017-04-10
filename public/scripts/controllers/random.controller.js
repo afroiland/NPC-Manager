@@ -347,20 +347,33 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
     // Set HP based on level. First level receives max HP
-    let clericHP = 8;
+    let hp = 8;
     for (i = 0; i < self.newnpc.level - 1; i++) {
-      clericHP += Math.floor(Math.random() * 8 + 1);
+      hp += Math.floor(Math.random() * 8 + 1);
     }
-    self.newnpc.maxhp = clericHP;
+    // adjust HP for Con
+    if (self.newnpc.con == 15) {
+      hp += (self.newnpc.level);
+    } else if (self.newnpc.con > 15) {
+      hp += (self.newnpc.level * 2);
+    }
+    self.newnpc.maxhp = hp;
 
     // Set cleric attributes
-    self.newnpc.str = 0;
-    self.newnpc.ex_str = 0;
-    for (i = 0; self.newnpc.str < 9; i++) {
-      self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.int = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.dex = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.con = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.wis = 0;
+    for (i = 0; self.newnpc.wis < 12; i++) {
+      self.newnpc.wis = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    }
+    self.newnpc.cha = 0;
+    for (i = 0; self.newnpc.cha < 15; i++) {
+      self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
 
-    // Set AC bewteen
+    // Set AC bewteen 7-10
 
     // Adjust AC for Dex
     if (self.newnpc.dex == 15) {
