@@ -10,8 +10,8 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   var muSpellsLv1=["burning hands", "charm person", "sleep", "magic missile", "detect magic", "light", "shocking grasp", "feather fall", "shield", "protection from evil"]
 
   self.generate = function() {
-    // switch (Math.floor(Math.random() * 4)) {
-    switch (9) {
+    switch (Math.floor(Math.random() * 10)) {
+    // switch (0) {
       case 0:
       generateFighter();
       break;
