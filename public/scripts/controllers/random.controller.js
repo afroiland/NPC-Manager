@@ -11,7 +11,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
   self.generate = function() {
     // switch (Math.floor(Math.random() * 4)) {
-    switch (6) {
+    switch (7) {
       case 0:
       generateFighter();
       break;
@@ -475,28 +475,65 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
 
-    // Set ranger attributes ()
+    // Set ranger attributes (Str must be 13+, Int 13+, Con 14+ Wis 14+)
     self.newnpc.str = 0;
-    for (i = 0; self.newnpc.str < 9; i++) {
+    for (i = 0; self.newnpc.str < 13; i++) {
       self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+      // Check for ex_str
+      if (self.newnpc.str == 18) {
+        self.newnpc.ex_str = Math.floor(Math.random() * 100);
+      } else {
+        self.newnpc.ex_str = 0;
+      }
     }
+    self.newnpc.int = 0;
+    for (i = 0; self.newnpc.int < 13; i++) {
+      self.newnpc.int = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    }
+    self.newnpc.dex = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    self.newnpc.con = 0;
+    for (i = 0; self.newnpc.con < 14; i++) {
+      self.newnpc.con = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    }
+    self.newnpc.wis = 0;
+    for (i = 0; self.newnpc.wis < 14; i++) {
+      self.newnpc.wis = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+    }
+    self.newnpc.cha = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
 
     // Set HP based on level. First level receives max HP
-    let hp = 8;
+    let hp = 16;
     for (i = 0; i < self.newnpc.level - 1; i++) {
       hp += Math.floor(Math.random() * 8 + 1);
     }
     // adjust HP for Con
     if (self.newnpc.con == 15) {
       hp += (self.newnpc.level);
-    } else if (self.newnpc.con > 15) {
+    } else if (self.newnpc.con == 16) {
       hp += (self.newnpc.level * 2);
+    } else if (self.newnpc.con == 17) {
+      hp += (self.newnpc.level * 3);
+    } else if (self.newnpc.con == 18) {
+      hp += (self.newnpc.level * 4);
     }
     self.newnpc.maxhp = hp;
 
-    // Set AC bewteen
+    // Set AC bewteen 3-9
+    let ac = (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1);
+    // Adjust AC for Dex
+    if (self.newnpc.dex == 15) {
+      ac -= 1;
+    } else if (self.newnpc.dex == 16) {
+      ac -= 2;
+    } else if (self.newnpc.dex == 17) {
+      ac -= 3;
+    } else if (self.newnpc.dex == 18) {
+      ac -= 4;
+    }
+    self.newnpc.ac = ac;
 
     // Set items
+
 
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
