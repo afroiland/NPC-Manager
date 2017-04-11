@@ -5,9 +5,9 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   self.newnpc = {};
   self.showcard = false;
 
-  var clSpellsLv1=["cure light wounds", "light", "bless", "command", "create water", "detect magic", "protection from evil", "purify food and drink", "remove fear", "sanctuary"]
-  var clSpellsLv2=["chant", "detect charm", "hold person", "know alignment", "resist fire", "silence 15' radius", "slow poison", "snake charm", "speak with animals", "spiritual hammer"]
-  var muSpellsLv1=["burning hands", "charm person", "sleep", "magic missile", "detect magic", "light", "shocking grasp", "feather fall", "shield", "protection from evil"]
+  var clSpellsLv1=["cure light wounds", "light", "bless", "command", "create water", "detect magic", "protection from evil", "purify food and drink", "remove fear", "sanctuary"];
+  var clSpellsLv2=["chant", "detect charm", "hold person", "know alignment", "resist fire", "silence 15' radius", "slow poison", "snake charm", "speak with animals", "spiritual hammer"];
+  var muSpellsLv1=["burning hands", "charm person", "sleep", "magic missile", "detect magic", "light", "shocking grasp", "feather fall", "shield", "protection from evil"];
 
   self.generate = function() {
     switch (Math.floor(Math.random() * 10)) {
@@ -43,10 +43,10 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       generateAssassin();
       break;
     }
-  }
+  };
 
   function generateFighter() {
-    self.newnpc.class = 'Fighter'
+    self.newnpc.class = 'Fighter';
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -108,7 +108,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateCleric() {
-    self.newnpc.class = 'Cleric'
+    self.newnpc.class = 'Cleric';
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -162,7 +162,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateMU() {
-    self.newnpc.class = 'Magic-User'
+    self.newnpc.class = 'Magic-User';
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -218,7 +218,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateThief() {
-    self.newnpc.class = 'Thief'
+    self.newnpc.class = 'Thief';
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -227,7 +227,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     self.newnpc.ex_str = 0;
     self.newnpc.int = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
-    self.newnpc.dex = 0
+    self.newnpc.dex = 0;
     for (i = 0; self.newnpc.dex < 9; i++) {
       self.newnpc.dex = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
@@ -271,7 +271,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateMonk() {
-    self.newnpc.class = 'Monk'
+    self.newnpc.class = 'Monk';
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -341,7 +341,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateDruid() {
-    self.newnpc.class = 'Druid'
+    self.newnpc.class = 'Druid';
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -396,7 +396,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generatePaladin() {
-    self.newnpc.class = 'Paladin'
+    self.newnpc.class = 'Paladin';
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -470,7 +470,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateRanger() {
-    self.newnpc.class = 'Ranger'
+    self.newnpc.class = 'Ranger';
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -541,7 +541,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateIllusionist() {
-    self.newnpc.class = 'Illusionist'
+    self.newnpc.class = 'Illusionist';
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -553,7 +553,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     for (i = 0; self.newnpc.int < 15; i++) {
       self.newnpc.int = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
-    self.newnpc.dex = 0
+    self.newnpc.dex = 0;
     for (i = 0; self.newnpc.dex < 16; i++) {
       self.newnpc.dex = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
@@ -597,7 +597,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
 
   function generateAssassin() {
-    self.newnpc.class = 'Assassin'
+    self.newnpc.class = 'Assassin';
 
     // Set level between 1-7
     self.newnpc.level = Math.floor(Math.random() * 7) + 1;
@@ -612,7 +612,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     for (i = 0; self.newnpc.int < 11; i++) {
       self.newnpc.int = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
-    self.newnpc.dex = 0
+    self.newnpc.dex = 0;
     for (i = 0; self.newnpc.dex < 12; i++) {
       self.newnpc.dex = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
     }
@@ -664,7 +664,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       .then(function(response) {
         console.log('response.data: ', response.data);
       });
-  }
+  };
 
 
 }]);
