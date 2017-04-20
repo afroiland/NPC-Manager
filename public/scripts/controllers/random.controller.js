@@ -4,6 +4,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
 
   self.newnpc = {};
   self.showcard = false;
+  const maxLevel = 7;
 
   var clSpellsLv1=["cure light wounds", "light", "bless", "command", "create water", "detect magic", "protection from evil", "purify food and drink", "remove fear", "sanctuary"];
   var clSpellsLv2=["chant", "detect charm", "hold person", "know alignment", "resist fire", "silence 15' radius", "slow poison", "snake charm", "speak with animals", "spiritual hammer"];
@@ -49,7 +50,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.class = 'Fighter';
 
     // Set level between 1-7
-    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+    self.newnpc.level = Math.floor(Math.random() * maxLevel) + 1;
 
     // Set fighter attributes (Str must be 9+)
     self.newnpc.str = 0;
@@ -111,7 +112,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.class = 'Cleric';
 
     // Set level between 1-7
-    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+    self.newnpc.level = Math.floor(Math.random() * maxLevel) + 1;
 
     // Set cleric attributes (Wis must be 9+)
     self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
@@ -165,7 +166,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.class = 'Magic-User';
 
     // Set level between 1-7
-    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+    self.newnpc.level = Math.floor(Math.random() * maxLevel) + 1;
 
 
     // Set mage attributes (Int must be 9+)
@@ -221,7 +222,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.class = 'Thief';
 
     // Set level between 1-7
-    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+    self.newnpc.level = Math.floor(Math.random() * maxLevel) + 1;
 
     // Set thief attributes (Dex must be 9+)
     self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
@@ -274,7 +275,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.class = 'Monk';
 
     // Set level between 1-7
-    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+    self.newnpc.level = Math.floor(Math.random() * maxLevel) + 1;
 
     // Set monk attributes (Str must be 15+, Wis 15+, Dex 15+, Con 11+)
     self.newnpc.str = 0;
@@ -344,7 +345,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.class = 'Druid';
 
     // Set level between 1-7
-    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+    self.newnpc.level = Math.floor(Math.random() * maxLevel) + 1;
 
     // Set druid attributes (Wis must be 12+, Cha 15+)
     self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
@@ -399,7 +400,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.class = 'Paladin';
 
     // Set level between 1-7
-    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+    self.newnpc.level = Math.floor(Math.random() * maxLevel) + 1;
 
     // Set Paladin attributes (Str must be 12+, Int 9+, Con 9+, Wis 13+, Cha 17+)
     self.newnpc.str = 0;
@@ -473,7 +474,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.class = 'Ranger';
 
     // Set level between 1-7
-    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+    self.newnpc.level = Math.floor(Math.random() * maxLevel) + 1;
 
     // Set ranger attributes (Str must be 13+, Int 13+, Con 14+ Wis 14+)
     self.newnpc.str = 0;
@@ -544,7 +545,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.class = 'Illusionist';
 
     // Set level between 1-7
-    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+    self.newnpc.level = Math.floor(Math.random() * maxLevel) + 1;
 
     // Set illusionust attributes (Int must be 15+, Dex 16+)
     self.newnpc.str = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
@@ -600,7 +601,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.class = 'Assassin';
 
     // Set level between 1-7
-    self.newnpc.level = Math.floor(Math.random() * 7) + 1;
+    self.newnpc.level = Math.floor(Math.random() * maxLevel) + 1;
 
     // Set assassin attributes (Str must be 12+, Int 11+, Dex 12+)
     self.newnpc.str = 0;
