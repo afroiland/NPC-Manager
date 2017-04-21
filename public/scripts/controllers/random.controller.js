@@ -11,8 +11,8 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   var muSpellsLv1=["burning hands", "charm person", "sleep", "magic missile", "detect magic", "light", "shocking grasp", "feather fall", "shield", "protection from evil"];
 
   self.generate = function() {
-    switch (Math.floor(Math.random() * 10)) {
-    // switch (0) {
+    // switch (Math.floor(Math.random() * 10)) {
+    switch (0) {
       case 0:
       generateFighter();
       break;
@@ -101,7 +101,28 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.ac = ac;
 
     // Set items
-
+    let items = [];
+    switch (Math.floor(Math.random() * 3)) {
+      case 0: items.push("long sword");
+      break;
+      case 1: items.push("short sword");
+      break;
+      case 2: items.push("dagger");
+      break;
+    }
+    switch (Math.floor(Math.random() * 3)) {
+      case 0: items.push("shield");
+      break;
+      case 1: items.push("dagger");
+      break;
+      case 2: items.push("tankard");
+      break;
+    }
+    npcItems = "";
+    for (i = 0; i < items.length; i++) {
+      npcItems += items[i] + ", ";
+    }
+    self.newnpc.items = npcItems;
 
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
