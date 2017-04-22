@@ -101,29 +101,31 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     self.newnpc.ac = ac;
 
     // Set items
-    let items = [];
+    let itemArray = [];
     switch (Math.floor(Math.random() * 3)) {
-      case 0: items.push("long sword");
+      case 0: itemArray.push("long sword");
       break;
-      case 1: items.push("short sword");
+      case 1: itemArray.push("short sword");
       break;
-      case 2: items.push("dagger");
+      case 2: itemArray.push("dagger");
       break;
     }
     switch (Math.floor(Math.random() * 3)) {
-      case 0: items.push("shield");
+      case 0: itemArray.push("shield");
       break;
-      case 1: items.push("dagger");
+      case 1: itemArray.push("dagger");
       break;
-      case 2: items.push("tankard");
+      case 2: itemArray.push("tankard");
       break;
     }
-    npcItems = "";
-    for (i = 0; i < items.length; i++) {
-      npcItems += items[i] + ", ";
+    items = "";
+    for (i = 0; i < itemArray.length; i++) {
+      items += itemArray[i] + ", ";
     }
-    npcItems = npcItems.slice(0, npcItems.length - 2);
-    self.newnpc.items = npcItems;
+    items = items.slice(0, items.length - 2);
+    self.newnpc.items = items;
+
+    // Set starting funds
 
     console.log("self.newnpc: ", self.newnpc);
     self.showcard = true;
