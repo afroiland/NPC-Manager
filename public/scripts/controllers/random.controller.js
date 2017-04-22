@@ -122,6 +122,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     for (i = 0; i < items.length; i++) {
       npcItems += items[i] + ", ";
     }
+    npcItems = npcItems.slice(0, npcItems.length - 2);
     self.newnpc.items = npcItems;
 
     console.log("self.newnpc: ", self.newnpc);
