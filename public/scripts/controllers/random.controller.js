@@ -104,9 +104,10 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       case 2: itemArray.push("tankard");
       break;
     }
+
     // Set armor (AC between 3 and 8)
     let ac;
-    switch ((Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3))) {
+    switch ((Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 2) + 1)) {
       case 3: itemArray.push("plate mail");
       ac = 3;
       break;
