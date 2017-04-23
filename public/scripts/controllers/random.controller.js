@@ -86,21 +86,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     }
     self.newnpc.maxhp = hp;
 
-    // Set AC between 3-9 (bell curve)
-    let ac = (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1);
-    // Adjust AC for Dex
-    if (self.newnpc.dex == 15) {
-      ac -= 1;
-    } else if (self.newnpc.dex == 16) {
-      ac -= 2;
-    } else if (self.newnpc.dex == 17) {
-      ac -= 3;
-    } else if (self.newnpc.dex == 18) {
-      ac -= 4;
-    }
-    self.newnpc.ac = ac;
-
-    // Set items
+    // Set weapons
     let itemArray = [];
     switch (Math.floor(Math.random() * 3)) {
       case 0: itemArray.push("long sword");
@@ -118,12 +104,52 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
       case 2: itemArray.push("tankard");
       break;
     }
+    // Set armor (AC between 3 and 8)
+    let ac;
+    switch ((Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3) + 1) + (Math.floor(Math.random() * 3))) {
+      case 3: itemArray.push("plate mail");
+      ac = 3;
+      break;
+      case 4: itemArray.push("banded mail");
+      ac = 4;
+      break;
+      case 5: itemArray.push("chain mail");
+      ac = 5;
+      break;
+      case 6: itemArray.push("scale mail");
+      ac = 6;
+      break;
+      case 7: itemArray.push("studded leather armor");
+      ac = 7;
+      break;
+      case 8: itemArray.push("leather armor");
+      ac = 8;
+      break;
+    }
     items = "";
     for (i = 0; i < itemArray.length; i++) {
       items += itemArray[i] + ", ";
     }
     items = items.slice(0, items.length - 2);
     self.newnpc.items = items;
+
+    // Adjust AC for shield
+    if (itemArray.includes("shield")) {
+      ac--;
+      console.log("has shield");
+    }
+
+    // Adjust AC for Dex
+    if (self.newnpc.dex == 15) {
+      ac -= 1;
+    } else if (self.newnpc.dex == 16) {
+      ac -= 2;
+    } else if (self.newnpc.dex == 17) {
+      ac -= 3;
+    } else if (self.newnpc.dex == 18) {
+      ac -= 4;
+    }
+    self.newnpc.ac = ac;
 
     // Set starting funds
 
