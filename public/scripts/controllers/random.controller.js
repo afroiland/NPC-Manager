@@ -49,7 +49,7 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
   function generateFighter() {
     self.newnpc.class = 'Fighter';
 
-    // Set level between 1-7
+    // Set level between 1 and max level
     self.newnpc.level = Math.floor(Math.random() * maxLevel) + 1;
 
     // Set fighter attributes (Str must be 9+)
