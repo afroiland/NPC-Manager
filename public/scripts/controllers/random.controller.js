@@ -137,7 +137,6 @@ app.controller('RandomController', ['$http', '$location', function($http, $locat
     // Adjust AC for shield
     if (itemArray.includes("shield")) {
       ac--;
-      console.log("has shield");
     }
 
     // Adjust AC for Dex
