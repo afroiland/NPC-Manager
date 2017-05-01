@@ -35,6 +35,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       controller: 'RandomController',
       controllerAs: 'random'
     })
+    .when('/combat', {
+      templateUrl: '/views/templates/combat.html',
+      controller: 'CombatController',
+      controllerAs: 'combat'
+    })
     .otherwise({
       redirectTo: '/NPCs'
     });

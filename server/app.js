@@ -6,6 +6,7 @@ var pgConnection = require('./modules/pg-connection');
 var npcs = require('./routes/npcs');
 var addnpc = require('./routes/addnpc');
 var random = require('./routes/random');
+var combat = require('./routes/combat')
 var app = express();
 
 const LOCALPORT = 3000;
@@ -22,7 +23,8 @@ app.get('/', function(req, res) {
 
 app.use('/npcs', npcs);
 app.use('/addnpc', addnpc);
-app.use('random', random);
+app.use('/random', random);
+app.use('/combat', combat);
 
 pgConnection.connect();
 
