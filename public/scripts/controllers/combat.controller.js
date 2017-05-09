@@ -1,5 +1,5 @@
-app.controller('CombatContoller', ['$http', '$location', function($http, $location) {
-  console.log("CombatContoller Running");
+app.controller('CombatController', ['$http', '$location', function($http, $location) {
+  console.log("CombatController Running");
   const self = this;
 
 
