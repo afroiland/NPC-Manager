@@ -8,8 +8,10 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
 
   self.oneRound = function() {
     determineInit();
-    if (init = segment) {
-
+    if (self.combatant1.init == self.combatant2.init) {
+      console.log('tied');
+    } else {
+      console.log('not tied');
     }
 
     // Advance segments until someone's turn to act
