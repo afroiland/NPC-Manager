@@ -1,5 +1,5 @@
 app.controller('AddnpcController', ['$http', '$location', function($http, $location) {
-  console.log("Addnpc Controller Running");
+  //console.log("Addnpc Controller Running");
   const self = this;
 
   self.newnpc = {};

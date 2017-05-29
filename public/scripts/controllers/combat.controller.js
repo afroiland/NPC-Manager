@@ -1,3 +1,5 @@
+var verbose = false;
+
 app.controller('CombatController', ['$http', '$location', function($http, $location) {
   // console.log("CombatController Running");
   const self = this;
@@ -10,35 +12,35 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
 
   self.oneRound = function() {
     var fightOver;
-    console.log('new round');
+    if (verbose) {console.log('new round');}
     determineInit();
-    console.log(self.combatant1.name + "'s init: ", self.combatant1.init);
-    console.log(self.combatant2.name + "'s init: ", self.combatant2.init);
+    if (verbose) {console.log(self.combatant1.name + "'s init: ", self.combatant1.init);}
+    if (verbose) {console.log(self.combatant2.name + "'s init: ", self.combatant2.init);}
     for (i = segment; i < 10; i++) {
       if (self.combatant1.init == i && self.combatant2.init ==i) {
         //console.log('simultaneous');
         attack(self.combatant1, self.combatant2);
         attack(self.combatant2, self.combatant1);
         if (checkForIncap(self.combatant1)) {
-          console.log(self.combatant1.name + ' has fallen');
+          if (verbose) {console.log(self.combatant1.name + ' has fallen');}
           fightOver = true;
         }
         if (checkForIncap(self.combatant2)) {
-          console.log(self.combatant2.name + ' has fallen');
+          if (verbose) {console.log(self.combatant2.name + ' has fallen');}
           fightOver = true;
         }
       } else if (self.combatant1.init == i) {
         //console.log('combatant1 go');
         attack(self.combatant1, self.combatant2);
         if (checkForIncap(self.combatant2)) {
-          console.log(self.combatant2.name + ' has fallen');
+          if (verbose) {console.log(self.combatant2.name + ' has fallen');}
           fightOver = true;
         }
       } else if (self.combatant2.init == i) {
         //console.log('combatant2 go');
         attack(self.combatant2, self.combatant1);
         if (checkForIncap(self.combatant1)) {
-          console.log(self.combatant1.name + ' has fallen');
+          if (verbose) {console.log(self.combatant1.name + ' has fallen');}
           fightOver = true;
         }
       }
@@ -49,15 +51,14 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
   };
 
   self.toTheFinish = function() {
-    console.log('fighting to the finish');
+    if (verbose) {console.log('fighting to the finish');}
     while (self.combatant1.currenthp > 0 && self.combatant2.currenthp > 0) {
-      //console.log('uh, going?');
       self.oneRound();
     }
   };
 
   function determineInit() {
-    console.log('determining init');
+    if (verbose) {console.log('determining init');}
     self.combatant1.init = Math.floor(Math.random() * 6) + 1;
     self.combatant2.init = Math.floor(Math.random() * 6) + 1;
   }
@@ -67,9 +68,9 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
     if (Math.floor(Math.random() * 20) + 1 >= attacker.thac0 - defender.ac) {
       var dmg = Math.floor(Math.random() * 6) + 1;
       defender.currenthp -= dmg;
-      console.log(attacker.name + ' hits, inflicting ' + dmg + ' damage, putting ' + defender.name + ' to ' + defender.currenthp + 'hp.');
+      if (verbose) {console.log(attacker.name + ' hits, inflicting ' + dmg + ' damage, putting ' + defender.name + ' to ' + defender.currenthp + 'hp.');}
     } else {
-      console.log(attacker.name + ' misses');
+      if (verbose) {console.log(attacker.name + ' misses');}
     }
   }
 
@@ -79,6 +80,29 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
       return true;
     }
   }
+
+  function doABunch() {
+    var dude1Wins = 0;
+    var dude2Wins = 0;
+    var mad = 0;
+    for (var i = 0; i < 100; i++) {
+      self.toTheFinish();
+      if (self.combatant1.currenthp > 0 && self.combatant2.currenthp <= 0) {
+        dude1Wins++;
+      } else if (self.combatant2.currenthp > 0 && self.combatant1.currenthp <= 0) {
+        dude2Wins++;
+      } else {
+        mad++;
+      }
+      self.combatant1.currenthp = 10;
+      self.combatant2.currenthp = 10;
+    }
+    console.log('dude1Wins: ', dude1Wins);
+    console.log('dude2Wins: ', dude2Wins);
+    console.log('mad: ', mad);
+  }
+
+  doABunch();
 
 
 }]);
