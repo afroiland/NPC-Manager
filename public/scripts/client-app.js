@@ -30,11 +30,11 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
       controller: 'AddnpcController',
       controllerAs: 'addnpc'
     })
-    .when('/random', {
-      templateUrl: '/views/templates/random.html',
-      controller: 'RandomController',
-      controllerAs: 'random'
-    })
+    // .when('/random', {
+    //   templateUrl: '/views/templates/random.html',
+    //   controller: 'RandomController',
+    //   controllerAs: 'random'
+    // })
     .when('/combat', {
       templateUrl: '/views/templates/combat.html',
       controller: 'CombatController',
