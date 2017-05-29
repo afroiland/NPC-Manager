@@ -1,4 +1,6 @@
 
+<md-button id="generate" class="md-raised md-primary" ng-click="addnpc.generate()">Generate NPC</md-button>
+
 <div class="npcList">
   <md-card class="mainCard">
     <md-card-title>
@@ -10,65 +12,65 @@
     <md-card-content>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Name</label>
-        <input ng-model="newnpc.name">
+        <input ng-model="addnpc.newnpc.name">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Level</label>
-        <input ng-model="newnpc.level">
+        <input ng-model="addnpc.newnpc.level">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Class</label>
-        <input ng-model="newnpc.class">
+        <input ng-model="addnpc.newnpc.class">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Hit Points</label>
-        <input ng-model="newnpc.maxhp">
+        <input ng-model="addnpc.newnpc.maxhp">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Armor Class</label>
-        <input ng-model="newnpc.ac">
+        <input ng-model="addnpc.newnpc.ac">
       </md-input-container>
 
       <table>
         <tr>
           <td>Str</td>
-          <td class="score" ng-hide="npc.ex_str">{{npc.str}}</td>
-          <td class="score" ng-show="npc.ex_str">{{npc.str}}/{{npc.ex_str}}</td>
+          <td class="score" ng-hide="addnpc.npc.ex_str">{{addnpc.newnpc.str}}</td>
+          <td class="score" ng-show="addnpc.npc.ex_str">{{addnpc.newnpc.str}}/{{npc.ex_str}}</td>
         </tr>
         <tr>
-          <td>Int</td><td class="score">{{npc.int}}</td>
+          <td>Int</td><td class="score">{{addnpc.newnpc.int}}</td>
         </tr>
         <tr>
-          <td>Dex</td><td class="score">{{npc.dex}}</td>
+          <td>Dex</td><td class="score">{{addnpc.newnpc.dex}}</td>
         </tr>
         <tr>
-          <td>Con</td><td class="score">{{npc.con}}</td>
+          <td>Con</td><td class="score">{{addnpc.newnpc.con}}</td>
         </tr>
         <tr>
-          <td>Wis</td><td class="score">{{npc.wis}}</td>
+          <td>Wis</td><td class="score">{{addnpc.newnpc.wis}}</td>
         </tr>
         <tr>
-          <td>Cha</td><td class="score">{{npc.cha}}</td>
+          <td>Cha</td><td class="score">{{addnpc.newnpc.cha}}</td>
         </tr>
       </table>
 
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Items</label>
-        <input ng-model="newnpc.items">
+        <input ng-model="addnpc.newnpc.items">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Spells</label>
-        <input ng-model="newnpc.spells">
+        <input ng-model="addnpc.newnpc.spells">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Notes</label>
-        <input ng-model="newnpc.notes">
+        <input ng-model="addnpc.newnpc.notes">
       </md-input-container>
       <md-input-container class="md-block" flex-gt-sm="100">
         <label>Dialogue</label>
-        <input ng-model="newnpc.dialogue">
+        <input ng-model="addnpc.newnpc.dialogue">
       </md-input-container>
-      <md-button class="md-raised md-primary" ng-click="addnpc.add(newnpc)">Add NPC</md-button>
+      <md-button class="md-raised md-primary" ng-click="addnpc.add(addnpc.newnpc)">Add NPC</md-button>
     </md-card-content>
   </md-card>
 </div>
