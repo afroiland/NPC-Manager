@@ -20,25 +20,25 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
         attack(self.combatant1, self.combatant2);
         attack(self.combatant2, self.combatant1);
         if (checkForIncap(self.combatant1)) {
-          console.log(self.combatant1.name + 'has fallen');
+          console.log(self.combatant1.name + ' has fallen');
           fightOver = true;
         }
         if (checkForIncap(self.combatant2)) {
-          console.log(self.combatant2.name + 'has fallen');
+          console.log(self.combatant2.name + ' has fallen');
           fightOver = true;
         }
       } else if (self.combatant1.init == i) {
         console.log('combatant1 go');
         attack(self.combatant1, self.combatant2);
         if (checkForIncap(self.combatant2)) {
-          console.log(self.combatant2.name + 'has fallen');
+          console.log(self.combatant2.name + ' has fallen');
           fightOver = true;
         }
       } else if (self.combatant2.init == i) {
         console.log('combatant2 go');
         attack(self.combatant2, self.combatant1);
         if (checkForIncap(self.combatant1)) {
-          console.log(self.combatant1.name + 'has fallen');
+          console.log(self.combatant1.name + ' has fallen');
           fightOver = true;
         }
       }
@@ -50,6 +50,10 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
 
   self.toTheFinish = function() {
     console.log('fighting to the finish');
+    while (self.combatant1.currenthp > 0 && self.combatant2.currenthp > 0) {
+      //console.log('uh, going?');
+      self.oneRound();
+    }
   };
 
   function determineInit() {
