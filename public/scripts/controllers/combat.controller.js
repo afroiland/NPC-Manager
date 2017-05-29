@@ -10,13 +10,13 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
 
   self.oneRound = function() {
     var fightOver;
-    console.log('fighting a bit');
+    console.log('new round');
     determineInit();
     console.log('self.combatant1.init: ', self.combatant1.init);
     console.log('self.combatant2.init: ', self.combatant2.init);
     for (i = segment; i < 10; i++) {
       if (self.combatant1.init == i && self.combatant2.init ==i) {
-        console.log('simultaneous');
+        //console.log('simultaneous');
         attack(self.combatant1, self.combatant2);
         attack(self.combatant2, self.combatant1);
         if (checkForIncap(self.combatant1)) {
@@ -28,14 +28,14 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
           fightOver = true;
         }
       } else if (self.combatant1.init == i) {
-        console.log('combatant1 go');
+        //console.log('combatant1 go');
         attack(self.combatant1, self.combatant2);
         if (checkForIncap(self.combatant2)) {
           console.log(self.combatant2.name + ' has fallen');
           fightOver = true;
         }
       } else if (self.combatant2.init == i) {
-        console.log('combatant2 go');
+        //console.log('combatant2 go');
         attack(self.combatant2, self.combatant1);
         if (checkForIncap(self.combatant1)) {
           console.log(self.combatant1.name + ' has fallen');
@@ -69,12 +69,12 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
       defender.currenthp -= dmg;
       console.log(attacker.name + ' hits, inflicting ' + dmg + ' damage. ' + defender.name + ' is at ' + defender.currenthp + 'hp.');
     } else {
-      console.log('Miss');
+      console.log('miss');
     }
   }
 
   function checkForIncap(char) {
-    console.log('checking for incap');
+    //console.log('checking for incap');
     if (char.currenthp <= 0) {
       return true;
     }
