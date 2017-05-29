@@ -67,7 +67,7 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
     if (Math.floor(Math.random() * 20) + 1 >= attacker.thac0 - defender.ac) {
       var dmg = Math.floor(Math.random() * 6) + 1;
       defender.currenthp -= dmg;
-      console.log(attacker.name + ' hits, inflicting ' + dmg + ' damage, putting ' + defender.name + ' at ' + defender.currenthp + 'hp.');
+      console.log(attacker.name + ' hits, inflicting ' + dmg + ' damage, putting ' + defender.name + ' to ' + defender.currenthp + 'hp.');
     } else {
       console.log(attacker.name + ' misses');
     }
