@@ -12,8 +12,8 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
     var fightOver;
     console.log('new round');
     determineInit();
-    console.log('self.combatant1.init: ', self.combatant1.init);
-    console.log('self.combatant2.init: ', self.combatant2.init);
+    console.log(self.combatant1.name + "'s init: ", self.combatant1.init);
+    console.log(self.combatant2.name + "'s init: ", self.combatant2.init);
     for (i = segment; i < 10; i++) {
       if (self.combatant1.init == i && self.combatant2.init ==i) {
         //console.log('simultaneous');
@@ -69,7 +69,7 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
       defender.currenthp -= dmg;
       console.log(attacker.name + ' hits, inflicting ' + dmg + ' damage. ' + defender.name + ' is at ' + defender.currenthp + 'hp.');
     } else {
-      console.log('miss');
+      console.log(attacker.name + ' misses');
     }
   }
 
