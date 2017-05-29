@@ -5,10 +5,11 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
   const self = this;
 
   //self.combatant1 = {};
-  self.combatant1 = {name:'Dude1', ac:7, currenthp:10, thac0: 20, dmg:'d6'};
+  self.combatant1 = {name:'Dude1', ac:5, currenthp:10, thac0: 20, weapon:'short sword'};
   //self.combatant2 = {};
-  self.combatant2 = {name:'Dude2', ac:7, currenthp:10, thac0: 20, dmg:'d6'};
-  var segment = 0;
+  self.combatant2 = {name:'Dude2', ac:7, currenthp:10, thac0: 20, weapon:'long sword'};
+
+
 
   self.oneRound = function() {
     var fightOver;
@@ -16,8 +17,9 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
     determineInit();
     if (verbose) {console.log(self.combatant1.name + "'s init: ", self.combatant1.init);}
     if (verbose) {console.log(self.combatant2.name + "'s init: ", self.combatant2.init);}
-    for (i = segment; i < 10; i++) {
-      if (self.combatant1.init == i && self.combatant2.init ==i) {
+    for (segment = 0; segment < 10; segment++) {
+      // If initiative is tied
+      if (self.combatant1.init == segment && self.combatant2.init ==segment) {
         //console.log('simultaneous');
         attack(self.combatant1, self.combatant2);
         attack(self.combatant2, self.combatant1);
@@ -29,14 +31,15 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
           if (verbose) {console.log(self.combatant2.name + ' has fallen');}
           fightOver = true;
         }
-      } else if (self.combatant1.init == i) {
+      // Determine who goes first
+    } else if (self.combatant1.init == segment) {
         //console.log('combatant1 go');
         attack(self.combatant1, self.combatant2);
         if (checkForIncap(self.combatant2)) {
           if (verbose) {console.log(self.combatant2.name + ' has fallen');}
           fightOver = true;
         }
-      } else if (self.combatant2.init == i) {
+      } else if (self.combatant2.init == segment) {
         //console.log('combatant2 go');
         attack(self.combatant2, self.combatant1);
         if (checkForIncap(self.combatant1)) {
@@ -65,8 +68,17 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
 
   function attack(attacker, defender) {
     //console.log(attacker.name + ' is attacking ' + defender.name);
+    var dmg;
+    switch (attacker.weapon) {
+      case "short sword":
+      dmg = Math.floor(Math.random() * 6) + 1;
+      break;
+      case "long sword":
+      dmg = Math.floor(Math.random() * 8) + 1;
+      break;
+    }
+    // Roll to hit
     if (Math.floor(Math.random() * 20) + 1 >= attacker.thac0 - defender.ac) {
-      var dmg = Math.floor(Math.random() * 6) + 1;
       defender.currenthp -= dmg;
       if (verbose) {console.log(attacker.name + ' hits, inflicting ' + dmg + ' damage, putting ' + defender.name + ' to ' + defender.currenthp + 'hp.');}
     } else {
