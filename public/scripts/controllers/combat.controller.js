@@ -1,11 +1,11 @@
-var verbose = false;
+var verbose = true;
 
 app.controller('CombatController', ['$http', '$location', function($http, $location) {
   // console.log("CombatController Running");
   const self = this;
 
   //self.combatant1 = {};
-  self.combatant1 = {name:'Dude1', ac:5, currenthp:10, thac0: 20, weapon:'short sword'};
+  self.combatant1 = {name:'Dude1', ac:3, currenthp:10, thac0: 16, weapon:'short sword'};
   //self.combatant2 = {};
   self.combatant2 = {name:'Dude2', ac:7, currenthp:10, thac0: 20, weapon:'long sword'};
 
@@ -97,7 +97,7 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
     var dude1Wins = 0;
     var dude2Wins = 0;
     var mad = 0;
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 1000; i++) {
       self.toTheFinish();
       if (self.combatant1.currenthp > 0 && self.combatant2.currenthp <= 0) {
         dude1Wins++;
@@ -106,7 +106,7 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
       } else {
         mad++;
       }
-      self.combatant1.currenthp = 10;
+      self.combatant1.currenthp = 20;
       self.combatant2.currenthp = 10;
     }
     console.log('dude1Wins: ', dude1Wins);
@@ -114,7 +114,7 @@ app.controller('CombatController', ['$http', '$location', function($http, $locat
     console.log('mad: ', mad);
   }
 
-  doABunch();
+  //doABunch();
 
 
 }]);

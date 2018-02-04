@@ -63,9 +63,9 @@ router.post('/', function(req, res) {
         console.log('successfully added npc ' + info.name);
         res.sendStatus(200);
       }
-    })
-  })
-})
+    });
+  });
+});
 
 
 module.exports = router;
